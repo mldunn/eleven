@@ -28,7 +28,7 @@ class EditPhoneTableViewCell: UITableViewCell {
     
     func configureCell(_ info: PhoneNumber) {
         typeField.text = info.type
-        numberField.text = info.formatted
+        numberField.text = info.value
         id = info.id
         
     }
