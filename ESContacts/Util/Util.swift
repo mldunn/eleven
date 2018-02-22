@@ -18,14 +18,14 @@ class Util {
         print("MSG: \(msg)")
     }
     
-    static func checkOnetimeKey(_ key: String) -> Bool {
-        var keyFound: Bool = true
-        if (UserDefaults.standard.string(forKey: key) == nil) {
-            keyFound = false
-            UserDefaults.standard.set("true", forKey: key)
+    static func checkImport(_ key: String) -> Bool {
+        var needsImport: Bool = false
+        if !UserDefaults.standard.bool(forKey: key) {
+            needsImport = true
+            UserDefaults.standard.set(true, forKey: key)
             UserDefaults.standard.synchronize()
         }
-        return keyFound
+        return needsImport
     }
 }
 

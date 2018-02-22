@@ -9,7 +9,7 @@
 import Foundation
 
 class ContactsManager {
-    
+    /***
     init() {
         for c in Contact.letters {
             contacts[String(c)] = []
@@ -141,4 +141,6 @@ class ContactsManager {
     func itemsForKey(letter: String) -> [Contact]? {
         return contacts[letter]
     }
+ 
+ **/
 }

@@ -29,10 +29,9 @@ class EditAddressTableViewCell: UITableViewCell {
     var id: String = ""
     var delegate: EditAddressDelegate?
     
-    func configureCell(_ info: Address) {
-        id = info.id
+    func configureCell(_ info: AddressData) {
         typeField.text = info.type
-        zipField.text = info.zip
+        zipField.text = info.zipcode
         stateField.text = info.state
         cityField.text = info.city
         street2Field.text = info.street2

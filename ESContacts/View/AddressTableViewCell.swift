@@ -17,13 +17,8 @@ class AddressTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
-    func configureCell(_ info: Address) {
+   
+    func configureCell(_ info: AddressData) {
         typeLabel.text = info.type
         blurbLabel.text = info.blurb
     }

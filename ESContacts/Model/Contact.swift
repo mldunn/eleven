@@ -10,6 +10,7 @@ import Foundation
 
 
 class Contact: Comparable {
+    
     static func <(lhs: Contact, rhs: Contact) -> Bool {
         return lhs.sortName.localizedStandardCompare(rhs.sortName) == ComparisonResult.orderedAscending
     }
@@ -31,6 +32,7 @@ class Contact: Comparable {
         id = UUID().uuidString
     }
     
+   
     
     init(clone: Contact) {
         firstName = clone.firstName
@@ -77,6 +79,13 @@ class Contact: Comparable {
         }
         
     }
+    
+   
+    var sortName: String {
+        get {
+            return ""
+        }
+    }
   
     var displayName: String {
         get {
@@ -100,12 +109,6 @@ class Contact: Comparable {
     }
     
    
-    init(firstName: String?, lastName: String?, company: String?) {
-        self.firstName = firstName
-        self.lastName = lastName
-        self.company = company
-        id = UUID().uuidString
-    }
     
     func addPhone(phone: PhoneNumber) {
         phoneItems.append(phone)
@@ -115,77 +118,7 @@ class Contact: Comparable {
         addressItems.append(address)
     }
  
-    var letterKey: String {
-        
-        get {
-            var initial = ""
-            if let ls = lastName {
-                initial = String(ls.prefix(1))
-            }
-                
-            if (initial.isEmpty) {
-                if let fs = firstName {
-                    initial = String(fs.prefix(1))
-                }
-                if (initial.isEmpty) {
-                    if let c = company {
-                        initial = String(c.prefix(1))
-                    }
-                }
-            }
-            let u = initial.uppercased()
-            if  Contact.letters.contains(u) {
-                return u
-            }
-            else {
-                return "#"
-            }
-        }
-    }
     
-    var initials: String {
-        
-        get {
-            var val = "", fi = "", li = ""
-            
-            if let fs = firstName {
-                fi = String(fs.prefix(1))
-            }
-            if let ls = lastName {
-                li = String(ls.prefix(1))
-            }
-            val = fi + li
-            
-            if val.isEmpty {
-                if let c = company {
-                    val = String(c.prefix(1))
-                }
-            }
-            return val.uppercased()
-        }
-    }
-    
-    var sortName: String {
-        
-        get {
-            var name = ""
-            if let ls = lastName {
-                name = ls
-            }
-                
-            if name.isEmpty {
-                if let fs = firstName {
-                    name = fs
-                }
-                if name.isEmpty {
-                    if let c = company {
-                        name = c
-                    }
-                }
-            }
-            return name
-        }
-    }
     
     var phoneCount: Int {
         get {

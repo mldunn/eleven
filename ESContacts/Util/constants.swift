@@ -24,6 +24,7 @@ class Colors {
 }
 
 
+
 extension UILabel {
     
     func highlightTerm(term: String, bold: Bool, color: UIColor?) {
@@ -42,7 +43,45 @@ extension UILabel {
             attributedText = maText
         }
     }
+    
+    func highlightAtIndex(index: Int, bold: Bool, color: UIColor?) {
+        if let caption = text {
+            let maText = NSMutableAttributedString(string: caption)
+            var attrs: [NSAttributedStringKey: Any] = [:]
+            if bold {
+                attrs[NSAttributedStringKey.font] = UIFont.boldSystemFont(ofSize: font.pointSize)
+            }
+            if let clr = color {
+                attrs[NSAttributedStringKey.foregroundColor] = clr
+            }
+            let range = NSRange.init(location: index, length: caption.count - index)
+            
+            maText.addAttributes(attrs, range: range)
+            attributedText = maText
+        }
+    }
+    
+    func highlightRange(range: NSRange, bold: Bool, color: UIColor?) {
+        
+        if let caption = text {
+            let maText = NSMutableAttributedString(string: caption)
+            var attrs: [NSAttributedStringKey: Any] = [:]
+            if bold {
+                attrs[NSAttributedStringKey.font] = UIFont.boldSystemFont(ofSize: font.pointSize)
+            }
+            if let clr = color {
+                attrs[NSAttributedStringKey.foregroundColor] = clr
+            }
+            maText.addAttributes(attrs, range: range)
+            attributedText = maText
+        }
+    }
 }
-
+extension String {
+    
+    func isAlpha() -> Bool {
+        return self.rangeOfCharacter(from: CharacterSet.letters.inverted) == nil && self != ""
+    }
+}
 
 

@@ -23,24 +23,22 @@ class EditPhoneTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    var id: String = ""
     var delegate: EditPhoneDelegate?
-    
-    func configureCell(_ info: PhoneNumber) {
+    var phone: PhoneData?
+    func configureCell(_ info: PhoneData) {
         typeField.text = info.type
         numberField.text = info.value
-        id = info.id
-        
+        phone = info
     }
     @IBAction func typeFieldEndEditing(_ sender: Any) {
-        delegate?.updatePhoneType(id, type: typeField.text ?? "")
+       phone?.type = typeField.text
     }
     @IBAction func numberFieldEndEditing(_ sender: Any) {
-        delegate?.updatePhoneNumber(id, number: numberField.text ?? "")
+        phone?.value = numberField.text
     }
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
-        delegate?.deletePhone(id)
+     //xxx   delegate?.deletePhone(phone)
     }
     
 }

@@ -7,8 +7,17 @@
 //
 
 import UIKit
+import CoreData
 
 class EditDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, EditPhoneDelegate, EditAddressDelegate, EditDetailsActionDelegate {
+    
+    
+    enum DismissAction {
+        case save
+        case cancel
+        case delete
+    }
+
     
     @IBOutlet weak var companyField: ItemTextField!
     @IBOutlet weak var lastNameField: ItemTextField!
@@ -16,28 +25,28 @@ class EditDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var detailsTableView: UITableView!
     
-    var existingContact: Contact?
-    var newContact = Contact()
-    var delegate: ManageContactDelegate?
+    var existingContact: ContactData?
+    var newContact: ContactData!
     
+    var managedContext: NSManagedObjectContext?
     var sectionHeaders = ["Add Phone", "Add Address", "Delete Contact"]
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        detailsTableView.dataSource = self
-        detailsTableView.delegate = self
-        detailsTableView.tableFooterView = UIView()
-        
         if let c = existingContact {
-            newContact = Contact(clone: c)
+            newContact = c
             bindFields()
         }
         else {
             title = "New Contact"
+            newContact = ContactData()
         }
         checkFields()
+        
+        detailsTableView.dataSource = self
+        detailsTableView.delegate = self
+        detailsTableView.tableFooterView = UIView()
     }
     
     func checkFields() {
@@ -61,16 +70,48 @@ class EditDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @IBOutlet weak var doneButton: UIBarButtonItem!
+    
+    func dismissVC(_ action: DismissAction) {
+        
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            
+            let managedContext = appDelegate.persistentContainer.viewContext
+            
+            do {
+                if action == .cancel {
+                    managedContext.rollback()
+                }
+                else {
+                    if action == .save {
+                        saveFields()
+                    }
+                    else if action == .delete {
+                        if let c = existingContact {
+                            try managedContext.delete(c)
+                        }
+                    }
+                    
+                    try managedContext.save()
+                    
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: CHANGE_NOTIFICATION), object: self)
+                }
+                dismiss(animated: true, completion: nil)
+                
+            }
+            catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func doneButtonTapped(_ sender: Any) {
-        saveFields()
-      
-        dismiss(animated: true, completion: {
-          self.delegate?.contactChanged(self.newContact)
-        })
+        
+        dismissVC(.save)
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        dismissVC(.cancel)
     }
     
     @IBAction func firstNameChanged(_ sender: Any) {
@@ -94,11 +135,13 @@ class EditDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    func getPhoneInfo(_ index: Int) -> PhoneNumber? {
+    
+    
+    func getPhoneInfo(_ index: Int) -> PhoneData? {
         return newContact.getPhoneByIndex(index)
     }
     
-    func getAddressInfo(_ index: Int) -> Address? {
+    func getAddressInfo(_ index: Int) -> AddressData? {
         return newContact.getAddressByIndex(index)
     }
     
@@ -107,21 +150,18 @@ class EditDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         var indexPath: IndexPath?
         if section == 2 {
             // delete
-            if let c = existingContact {
-                delegate?.contactDeleted(c)
-            }
-            dismiss(animated: true, completion: nil)
+            dismissVC(.delete)
             return
         }
         else if section == 0 {
-            let phone = PhoneNumber()
-            newContact.addPhone(phone)
-           indexPath = IndexPath(row: newContact.phoneCount - 1, section: section)
+            let phone = PhoneData()
+            //xx   newContact.addPhone(phone)
+            //xx   indexPath = IndexPath(row: newContact.phoneCount - 1, section: section)
         }
         else if section == 1 {
-            let address = Address()
-            newContact.addAddress(address)
-            indexPath = IndexPath(row: newContact.addressCount - 1, section: section)
+            let address = AddressData()
+            //xx   newContact.addAddress(address)
+            //xx   indexPath = IndexPath(row: newContact.addressCount - 1, section: section)
         }
         if let ip = indexPath {
             detailsTableView.insertRows(at: [ip], with: .bottom)
@@ -132,26 +172,27 @@ class EditDetailsViewController: UIViewController, UITableViewDelegate, UITableV
 
 extension EditDetailsViewController {
     func updatePhoneNumber(_ id: String, number: String) {
-        newContact.updatePhoneNumber(id, number: number)
+        //xx  newContact.updatePhoneNumber(id, number: number)
     }
     
     func updatePhoneType(_ id: String, type: String) {
-        newContact.updatePhoneType(id, type: type)
+        //xx  newContact.updatePhoneType(id, type: type)
     }
     
     func updateAddressField(_ id: String, field: Address.AddressField, value: String?) {
-        newContact.updateAddressField(id, field: field, value: value ?? "")
+        //xx  newContact.updateAddressField(id, field: field, value: value ?? "")
     }
     
     func deleteAddress(_ id: String) {
-        newContact.removeAddress(id)
+        //xx  newContact.removeAddress(id)
         detailsTableView.reloadData()
     }
     
     func deletePhone(_ id: String) {
-        newContact.removePhone(id)
+        //xx   newContact.removePhone(id)
         detailsTableView.reloadData()
     }
+    
 }
 
 
@@ -185,10 +226,14 @@ extension EditDetailsViewController {
         
         var count = 0
         if section == 0 {
-            count = newContact.phoneCount
+            if let items = newContact.phoneItems {
+                count = items.count
+            }
         }
         else if section == 1 {
-            count = newContact.addressCount
+            if let items = newContact.addressItems {
+                count = items.count
+            }
         }
         return count
     }

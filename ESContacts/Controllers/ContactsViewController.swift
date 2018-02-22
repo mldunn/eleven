@@ -8,38 +8,45 @@
 
 import UIKit
 
-protocol ManageContactDelegate {
-    func contactChanged(_ contact: Contact)
-    func contactDeleted(_ contact: Contact)
-}
+let CHANGE_NOTIFICATION = "ContactChanged"
 
-class ContactsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ManageContactDelegate  {
+class ContactsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var itemTableView: UITableView!
     
-    var contactManager = ContactsManager()
+    var contactManager = ContactHelper()
     var sectionHeaders = [String]()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = "Contacts"
         
-        if Util.checkOnetimeKey("importJSON") {
+        itemTableView.register(UITableViewCell.self, forCellReuseIdentifier: "contactCell")
+        itemTableView.register(UITableViewCell.self, forCellReuseIdentifier: "footerCell")
+        
+        if Util.checkImport("importJSON") {
             _ = contactManager.importJSON()
         }
-        else {
-            _ = contactManager.load()
-        }
+        
         
         sectionHeaders = contactManager.letterKeys()
         itemTableView.delegate = self
         itemTableView.dataSource = self
         
         itemTableView.tableFooterView = UIView()
-       
+        
+        // listen for contact changed
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshView), name: Notification.Name(rawValue: CHANGE_NOTIFICATION), object: nil)
+        
     }
+    
+    
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -47,33 +54,32 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func addContact(_ sender: Any) {
-         performSegue(withIdentifier: "addNewContact", sender: self)
+        performSegue(withIdentifier: "addNewContact", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetails" {
-            if let vc = segue.destination as? DetailsViewController, let contact = sender as? Contact {
+            if let vc = segue.destination as? DetailsViewController, let contact = sender as? ContactData {
                 vc.contact = contact
-                vc.delegate = self
-            }
+           }
         }
         else if segue.identifier == "addNewContact" {
             if let nav = segue.destination as? UINavigationController {
                 if let vc = nav.viewControllers.first as? EditDetailsViewController {
-                    vc.delegate = self
+                    //xx           vc.delegate = self
                 }
             }
         }
     }
     
-    func showDetails(_ contact: Contact) {
+    func showDetails(_ contact: ContactData) {
         performSegue(withIdentifier: "showDetails", sender: contact)
     }
     
-   
+    
     
     func getItemCountDisplay() -> String {
-        let count = contactManager.count
+        let count = contactManager.totalItems
         var footerText = " Contacts"
         if count == 1 {
             footerText = " Contact"
@@ -81,12 +87,12 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
         return String(count) + footerText
     }
     
-    func refreshView() {
+    @objc func refreshView() {
         DispatchQueue.main.async {
             self.sectionHeaders = self.contactManager.letterKeys()
             print(self.sectionHeaders)
             self.itemTableView.reloadData()
-           // self.updateFooter()
+            // self.updateFooter()
         }
     }
     func letterForSection(_ index: Int) -> String? {
@@ -96,14 +102,14 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
         return sectionHeaders[index]
     }
     
-    func getItem(_ indexPath: IndexPath) -> Contact? {
-        var item: Contact?
+    func getItem(_ indexPath: IndexPath) -> ContactData? {
+        var item: ContactData?
         if let key = letterForSection(indexPath.section) {
             if let items = contactManager.itemsForKey(letter: key) {
                 guard indexPath.row >= 0 && indexPath.row < items.count else {
                     return nil
                 }
-                item = items[indexPath.row]
+                item = items[indexPath.row] as? ContactData
             }
         }
         return item
@@ -122,7 +128,7 @@ extension ContactsViewController {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section < sectionHeaders.count {
-           return letterForSection(section)
+            return letterForSection(section)
         }
         return nil
     }
@@ -141,22 +147,19 @@ extension ContactsViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == sectionHeaders.count {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell") {
-                cell.textLabel?.text = getItemCountDisplay()
-                cell.textLabel?.textAlignment = .center
-                cell.selectionStyle = .none
-                return cell
-            }
+            let cell = tableView.dequeueReusableCell(withIdentifier: "footerCell", for: indexPath)
+            cell.textLabel?.text = getItemCountDisplay()
+            cell.textLabel?.textAlignment = .center
+            cell.selectionStyle = .none
+            return cell
         }
         else if let item = getItem(indexPath) {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell") {
-                cell.textLabel?.text = item.displayName
-                cell.textLabel?.highlightTerm(term: item.sortName, bold: true, color: nil)
-                cell.selectionStyle = .none
-                return cell
-            }
+            let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath)
+            cell.textLabel?.text = item.displayName
+            cell.textLabel?.highlightAtIndex(index: Int(item.sortIndex), bold: true, color: nil)
+            cell.selectionStyle = .none
+            return cell
         }
-        
         return UITableViewCell()
     }
     
@@ -167,22 +170,6 @@ extension ContactsViewController {
     }
 }
 
-extension ContactsViewController {
-    func contactChanged(_ contact: Contact) {
-        print("contactChanged")
-       
-            
-        self.contactManager.updateContact(contact)
-        self.refreshView()
-        
-    }
-    
-    func contactDeleted(_ contact: Contact) {
-        contactManager.deleteContact(contact)
-        navigationController?.popToRootViewController(animated: true)
-        refreshView()
-    }
-}
 
 
 

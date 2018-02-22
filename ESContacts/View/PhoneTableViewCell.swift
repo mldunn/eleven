@@ -17,13 +17,9 @@ class PhoneTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+   
     
-    func configureCell(_ info: PhoneNumber) {
+    func configureCell(_ info: PhoneData) {
         typeLabel.text = info.type
         valueLabel.text = info.formatted
     }

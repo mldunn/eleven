@@ -10,10 +10,10 @@ import UIKit
 
 
 
-class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ManageContactDelegate {
-    
-    var contact: Contact?
-    var delegate: ManageContactDelegate?
+class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+    var contact: ContactData?
+   
     @IBOutlet weak var detailsTableView: UITableView!
     
     @IBOutlet weak var companyLabel: UILabel!
@@ -26,10 +26,13 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         detailsTableView.delegate = self
         detailsTableView.dataSource = self
-        
         detailsTableView.tableFooterView = UIView()
         
         bindFields()
+        
+        // listen for contact changed
+        NotificationCenter.default.addObserver(self, selector: #selector(handleChange), name: Notification.Name(rawValue: CHANGE_NOTIFICATION), object: nil)
+        
     }
     
     
@@ -37,11 +40,14 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         if segue.identifier == "editContact" {
             if let nav = segue.destination as? UINavigationController {
                 if let vc = nav.viewControllers.first as? EditDetailsViewController {
-                    vc.delegate = self
                     vc.existingContact = contact
                 }
             }
         }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     @IBAction func editButtonTapped(_ sender: Any) {
@@ -50,6 +56,12 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func editContact() {
         performSegue(withIdentifier: "editContact", sender: contact)
+    }
+    
+    @objc func handleChange(_ sender: Any) {
+        
+        bindFields()
+        
     }
     
     func bindFields() {
@@ -61,28 +73,14 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func getPhoneInfo(_ index: Int) -> PhoneNumber? {
+    func getPhoneInfo(_ index: Int) -> PhoneData? {
         return contact?.getPhoneByIndex(index)
     }
     
-    func getAddressInfo(_ index: Int) -> Address? {
+    func getAddressInfo(_ index: Int) -> AddressData? {
         return contact?.getAddressByIndex(index)
     }
-    
-    
-    func contactChanged(_ contact: Contact) {
-        self.contact = contact
-        bindFields()
-        delegate?.contactChanged(contact)
-    }
-    
-    func contactDeleted(_ contact: Contact) {
-        delegate?.contactDeleted(contact)
-    }
-    
-    
-    
-    
+
 }
 
 extension DetailsViewController {
@@ -96,10 +94,10 @@ extension DetailsViewController {
         var count = 0
         if let c = contact {
             if section == 0 {
-                count = c.phoneCount
+                count = c.phoneItems?.count ?? 0
             }
             else if section == 1 {
-                count = c.addressCount
+                count = c.addressItems?.count ?? 0
             }
         }
         return count
@@ -132,4 +130,5 @@ extension DetailsViewController {
             return tableView.rowHeight
         }
     }
+ 
 }
