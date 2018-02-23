@@ -232,4 +232,32 @@ public class ContactData: NSManagedObject, NSCopying {
         }
         return item
     }
+    
+    func addPhone() {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate  {
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let phone = PhoneData(context: managedContext)
+            addToPhoneItems(phone)
+        }
+    }
+    
+    func addAddress() {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate  {
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let address = AddressData(context: managedContext)
+            addToAddressItems(address)
+        }
+    }
+    
+    var phoneCount: Int {
+        get {
+            return phoneItems?.count ?? 0
+        }
+    }
+    
+    var addressCount: Int {
+        get {
+            return addressItems?.count ?? 0
+        }
+    }
 }

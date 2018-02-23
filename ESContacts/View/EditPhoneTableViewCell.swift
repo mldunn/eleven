@@ -9,9 +9,7 @@
 import UIKit
 
 protocol EditPhoneDelegate {
-    func updatePhoneType(_ id: String, type: String)
-    func updatePhoneNumber(_ id: String, number: String)
-    func deletePhone(_ id: String)
+    func deletePhone(_ phone: PhoneData)
 }
 
 class EditPhoneTableViewCell: UITableViewCell {
@@ -20,25 +18,28 @@ class EditPhoneTableViewCell: UITableViewCell {
     @IBOutlet weak var typeField: UITextField!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        layer.borderWidth = 0
+        layer.backgroundColor = UIColor.blue.cgColor
     }
     
     var delegate: EditPhoneDelegate?
-    var phone: PhoneData?
+    var phone: PhoneData!
+    
     func configureCell(_ info: PhoneData) {
         typeField.text = info.type
         numberField.text = info.value
         phone = info
     }
-    @IBAction func typeFieldEndEditing(_ sender: Any) {
-       phone?.type = typeField.text
+   
+    @IBAction func typeFieldChanged(_ sender: Any) {
+        phone?.type = typeField.text
     }
-    @IBAction func numberFieldEndEditing(_ sender: Any) {
+    @IBAction func numberFieldChanged(_ sender: Any) {
         phone?.value = numberField.text
     }
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
-     //xxx   delegate?.deletePhone(phone)
+        delegate?.deletePhone(phone)
     }
     
 }

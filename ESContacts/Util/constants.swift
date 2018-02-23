@@ -23,6 +23,8 @@ class Colors {
     static var sysBlue =  UIColor(red: 18.0/255.0, green: 149.0/255.0, blue: 1, alpha: 1)
 }
 
+let SAVE_NOTIFICATION = "ContactSaved"
+let DELETE_NOTIFICATION = "ContactDelete"
 
 
 extension UILabel {

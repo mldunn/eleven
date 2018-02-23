@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var contact: ContactData?
@@ -31,11 +29,11 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         bindFields()
         
         // listen for contact changed
-        NotificationCenter.default.addObserver(self, selector: #selector(handleChange), name: Notification.Name(rawValue: CHANGE_NOTIFICATION), object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleChange), name: Notification.Name(rawValue: SAVE_NOTIFICATION), object: nil)
+
     }
     
-    
+   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editContact" {
             if let nav = segue.destination as? UINavigationController {
@@ -59,9 +57,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @objc func handleChange(_ sender: Any) {
-        
         bindFields()
-        
     }
     
     func bindFields() {

@@ -18,6 +18,13 @@ class EditDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         case delete
     }
 
+    enum AddDetailRowType: Int {
+        case none = -1
+        case phone = 0
+        case address = 1
+        case email = 2
+        case delete = 3
+    }
     
     @IBOutlet weak var companyField: ItemTextField!
     @IBOutlet weak var lastNameField: ItemTextField!
@@ -29,7 +36,13 @@ class EditDetailsViewController: UIViewController, UITableViewDelegate, UITableV
     var newContact: ContactData!
     
     var managedContext: NSManagedObjectContext?
-    var sectionHeaders = ["Add Phone", "Add Address", "Delete Contact"]
+    var sectionHeaders = ["add phone", "add address", "Delete Contact"]
+    
+    var isExistingContact: Bool {
+        get {
+            return existingContact != nil
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +60,7 @@ class EditDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         detailsTableView.dataSource = self
         detailsTableView.delegate = self
         detailsTableView.tableFooterView = UIView()
+        detailsTableView.setEditing(true, animated: false)
     }
     
     func checkFields() {
@@ -82,18 +96,21 @@ class EditDetailsViewController: UIViewController, UITableViewDelegate, UITableV
                     managedContext.rollback()
                 }
                 else {
+                    var notification: String!
                     if action == .save {
                         saveFields()
+                        notification = SAVE_NOTIFICATION
                     }
                     else if action == .delete {
                         if let c = existingContact {
-                            try managedContext.delete(c)
+                            managedContext.delete(c)
                         }
+                        notification = DELETE_NOTIFICATION
                     }
                     
                     try managedContext.save()
                     
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: CHANGE_NOTIFICATION), object: self)
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: notification), object: self)
                 }
                 dismiss(animated: true, completion: nil)
                 
@@ -135,8 +152,6 @@ class EditDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    
-    
     func getPhoneInfo(_ index: Int) -> PhoneData? {
         return newContact.getPhoneByIndex(index)
     }
@@ -145,40 +160,29 @@ class EditDetailsViewController: UIViewController, UITableViewDelegate, UITableV
         return newContact.getAddressByIndex(index)
     }
     
-    
     func addNewRow(_ section: Int) {
-        var indexPath: IndexPath?
         if section == 2 {
             // delete
             dismissVC(.delete)
             return
         }
-        else if section == 0 {
-            let phone = PhoneData()
-            //xx   newContact.addPhone(phone)
-            //xx   indexPath = IndexPath(row: newContact.phoneCount - 1, section: section)
-        }
-        else if section == 1 {
-            let address = AddressData()
-            //xx   newContact.addAddress(address)
-            //xx   indexPath = IndexPath(row: newContact.addressCount - 1, section: section)
-        }
-        if let ip = indexPath {
-            detailsTableView.insertRows(at: [ip], with: .bottom)
-            detailsTableView.scrollToRow(at: ip, at: .bottom, animated: true)
+        else {
+            let rowIndex = detailsTableView.numberOfRows(inSection: section)
+            let indexPath = IndexPath(row: rowIndex, section: section)
+            if section == 0 {
+                newContact.addPhone()
+            }
+            else if section == 1 {
+                newContact.addAddress()
+            }
+            detailsTableView.insertRows(at: [indexPath], with: .bottom)
+            detailsTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }
     }
 }
 
 extension EditDetailsViewController {
-    func updatePhoneNumber(_ id: String, number: String) {
-        //xx  newContact.updatePhoneNumber(id, number: number)
-    }
-    
-    func updatePhoneType(_ id: String, type: String) {
-        //xx  newContact.updatePhoneType(id, type: type)
-    }
-    
+ 
     func updateAddressField(_ id: String, field: Address.AddressField, value: String?) {
         //xx  newContact.updateAddressField(id, field: field, value: value ?? "")
     }
@@ -188,7 +192,7 @@ extension EditDetailsViewController {
         detailsTableView.reloadData()
     }
     
-    func deletePhone(_ id: String) {
+    func deletePhone(_ phone: PhoneData) {
         //xx   newContact.removePhone(id)
         detailsTableView.reloadData()
     }
@@ -198,32 +202,116 @@ extension EditDetailsViewController {
 
 extension EditDetailsViewController {
     
+    func isAddDetailsRow(indexPath: IndexPath) -> Bool {
+    
+        if indexPath.row == (detailsTableView.numberOfRows(inSection: indexPath.section) - 1) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+    
+    @objc func addDetail(_ sender: Any) {
+        if let btn = sender as? UIButton {
+            print(btn.tag)
+        }
+    }
+    
+    @available(iOS 11.0, *)
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        return nil
+    }
+    
+    @available(iOS 11.0, *)
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, handler) in
+            //YOUR_CODE_HERE
+        }
+        deleteAction.backgroundColor = .red
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        configuration.performsFirstActionWithFullSwipe = false
+        return configuration
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            // delete item at indexPath
+        }
+        
+        let share = UITableViewRowAction(style: .normal, title: "Disable") { (action, indexPath) in
+            // share item at indexPath
+        }
+        
+        share.backgroundColor = UIColor.blue
+        
+        return [delete, share]
+    }
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    
+        if isAddDetailsRow(indexPath: indexPath) {
+            return UITableViewCellEditingStyle.insert
+        }
+        else {
+            return UITableViewCellEditingStyle.delete
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        
+        // ignore last row
+        
+        if (isExistingContact && (indexPath.section == tableView.numberOfSections - 1)) {
+            return false
+        }
+        return true
+    }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 40
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         let headerView = EditDetailsHeaderView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 40))
-        
         headerView.configure(section, title: sectionHeaders[section], centered: section == 2)
         headerView.delegate = self
         return headerView
-        
     }
     
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        let frame = tableView.frame
+        
+        let button = UIButton(frame: CGRect(x: 5, y: 10, width: 15, height: 15))  // create button
+        button.tag = section
+        // the button is image - set image
+      //  button.setImage(UIImage(named: "remove_button"), forState: .normal)  // assumes there is an image named "remove_button"
+        button.addTarget(self, action: #selector(EditDetailsViewController.addDetail(_:)), for: .touchUpInside)
+        
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
+        
+        headerView.addSubview(button)   // add the button to the view
+        
+        return headerView
+    }
+
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        
         var count = 2
-        if let _ = existingContact {
+        
+        // add one for "Delete Contact"
+        if isExistingContact {
             count += 1
         }
         return count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         var count = 0
         if section == 0 {
             if let items = newContact.phoneItems {
@@ -235,13 +323,23 @@ extension EditDetailsViewController {
                 count = items.count
             }
         }
-        return count
+        // add one to include the add row
+        return count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
+        
+        if isAddDetailsRow(indexPath: indexPath) {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "addDetailCell") {
+                cell.textLabel?.text = sectionHeaders[indexPath.section]
+                return cell
+            }
+        }
+        else if indexPath.section == 0 {
+            
             if let info = getPhoneInfo(indexPath.row), let cell = tableView.dequeueReusableCell(withIdentifier: "editPhoneCell") as? EditPhoneTableViewCell {
                 cell.delegate = self
+                cell.selectionStyle = .none
                 cell.configureCell(info)
                 return cell
             }

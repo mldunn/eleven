@@ -8,7 +8,7 @@
 
 import UIKit
 
-let CHANGE_NOTIFICATION = "ContactChanged"
+
 
 class ContactsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -37,11 +37,20 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
         itemTableView.tableFooterView = UIView()
         
         // listen for contact changed
-        NotificationCenter.default.addObserver(self, selector: #selector(refreshView), name: Notification.Name(rawValue: CHANGE_NOTIFICATION), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(contactSaved), name: Notification.Name(rawValue: SAVE_NOTIFICATION), object: nil)
+        // listen for contact deleted
+        NotificationCenter.default.addObserver(self, selector: #selector(contactDeleted), name: Notification.Name(rawValue: DELETE_NOTIFICATION), object: nil)
         
     }
     
+    @objc func contactDeleted() {
+        navigationController?.popToRootViewController(animated: true)
+        refreshView()
+    }
     
+    @objc func contactSaved() {
+        refreshView()
+    }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -63,20 +72,11 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
                 vc.contact = contact
            }
         }
-        else if segue.identifier == "addNewContact" {
-            if let nav = segue.destination as? UINavigationController {
-                if let vc = nav.viewControllers.first as? EditDetailsViewController {
-                    //xx           vc.delegate = self
-                }
-            }
-        }
     }
     
     func showDetails(_ contact: ContactData) {
         performSegue(withIdentifier: "showDetails", sender: contact)
     }
-    
-    
     
     func getItemCountDisplay() -> String {
         let count = contactManager.totalItems
@@ -87,14 +87,13 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
         return String(count) + footerText
     }
     
-    @objc func refreshView() {
+    func refreshView() {
         DispatchQueue.main.async {
             self.sectionHeaders = self.contactManager.letterKeys()
-            print(self.sectionHeaders)
             self.itemTableView.reloadData()
-            // self.updateFooter()
         }
     }
+    
     func letterForSection(_ index: Int) -> String? {
         guard index >= 0  && index < sectionHeaders.count else {
             return nil
@@ -167,6 +166,10 @@ extension ContactsViewController {
         if let item = getItem(indexPath) {
             showDetails(item)
         }
+    }
+    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return sectionHeaders
     }
 }
 
