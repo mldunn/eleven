@@ -27,6 +27,7 @@ public class AddressData: NSManagedObject {
             return Util.isNonEmptyFieldValue(street1)
                 || Util.isNonEmptyFieldValue(street2)
                     || Util.isNonEmptyFieldValue(city)
+                    || Util.isNonEmptyFieldValue(state)
                     || Util.isNonEmptyFieldValue(zipcode)
                   //  || Util.isNonEmptyFieldValue(country)
         }
