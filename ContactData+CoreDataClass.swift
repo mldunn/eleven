@@ -12,7 +12,7 @@ import CoreData
 import UIKit
 
 @objc(ContactData)
-public class ContactData: NSManagedObject, NSCopying {
+public class ContactData: NSManagedObject {
    
     //
     // initalize from JSON
@@ -71,7 +71,7 @@ public class ContactData: NSManagedObject, NSCopying {
     }
     
     
-    
+    /*
     public func copy(with zone: NSZone? = nil) -> Any {
         
         guard let appDelegate =
@@ -101,7 +101,7 @@ public class ContactData: NSManagedObject, NSCopying {
         return cd
        
     }
-    
+    */
     
     func getSortInfo() {
         // store the sort info here
@@ -124,7 +124,7 @@ public class ContactData: NSManagedObject, NSCopying {
                 name = c
             }
         }
-        //
+        
         sectionKey = letterKey
         sortIndex = index
         sortName = name
@@ -233,20 +233,23 @@ public class ContactData: NSManagedObject, NSCopying {
         return item
     }
     
-    func addPhone() {
+    func addPhone() -> Int {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate  {
             let managedContext = appDelegate.persistentContainer.viewContext
             let phone = PhoneData(context: managedContext)
             addToPhoneItems(phone)
         }
+        dumpSet(phoneItems)
+        return phoneCount
     }
     
-    func addAddress() {
+    func addAddress() -> Int {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate  {
             let managedContext = appDelegate.persistentContainer.viewContext
             let address = AddressData(context: managedContext)
             addToAddressItems(address)
         }
+        return addressCount
     }
     
     var phoneCount: Int {
@@ -255,9 +258,75 @@ public class ContactData: NSManagedObject, NSCopying {
         }
     }
     
+    var isValid: Bool {
+        return !( (firstName?.isEmpty ?? true) && (lastName?.isEmpty ?? true) && (company?.isEmpty ?? true) )
+    }
+    
     var addressCount: Int {
         get {
             return addressItems?.count ?? 0
+        }
+    }
+    
+    func sanitize() {
+        if let set = phoneItems {
+            let items = Array(set)
+            var invalidItems = [PhoneData]()
+            for item in items {
+                
+                if let dataItem = item as? PhoneData, !dataItem.isValid {
+                    invalidItems.append(dataItem)
+                }
+            }
+            for ii in invalidItems {
+                removeFromPhoneItems(ii)
+            }
+            
+        }
+        if let set = addressItems {
+            let items = Array(set)
+            var invalidItems = [AddressData]()
+            for item in items {
+                
+                if let dataItem = item as? AddressData, !dataItem.isValid {
+                    invalidItems.append(dataItem)
+                }
+            }
+            
+            for ii in invalidItems {
+                removeFromAddressItems(ii)
+            }
+        }
+        
+        
+    }
+    
+    
+    func dump() {
+        Logger.log("id [\(id)]")
+        Logger.log("firstname [\(firstName)]")
+        Logger.log("lastname [\(lastName)]")
+        Logger.log("company [\(company)]")
+        Logger.log("sortKey [\(sectionKey)]")
+        Logger.log("sortName [\(sortName)]")
+        dumpSet(phoneItems)
+        dumpSet(addressItems)
+    }
+    func dumpSet(_ set: NSOrderedSet?) {
+        if let items = set {
+            let arr = Array(items)
+            var i = 0
+            for item in arr {
+                if let pi = item as? PhoneData {
+                    Logger.log("PhoneItem \(i)")
+                    pi.dump()
+                }
+                else if let ai = item as? AddressData {
+                    Logger.log("AddressItem \(i)")
+                    ai.dump()
+                }
+                i += 1
+            }
         }
     }
 }

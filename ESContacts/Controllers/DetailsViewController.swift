@@ -57,10 +57,19 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @objc func handleChange(_ sender: Any) {
-        bindFields()
+        
+        if let id = contact?.id {
+            contact = ContactHelper.getContact(id)
+        }
+        DispatchQueue.main.async {
+            
+          
+            self.bindFields()
+        }
     }
     
     func bindFields() {
+        
         if let c = contact {
             initialLabel.text = c.initials
             displayName.text = c.displayName

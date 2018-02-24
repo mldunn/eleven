@@ -9,17 +9,23 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 @objc(PhoneData)
 public class PhoneData: NSManagedObject {
     
     
-
+    
+    var isValid:Bool {
+        get {
+            return Util.isNonEmptyFieldValue(value)
+        }
+    }
     
     func parse(data: NSDictionary) {
         value = data["value"] as? String ?? ""
         type = data["type"] as? String ?? ""
-    }
+   }
     
     var formatted: String {
         get {
@@ -40,5 +46,10 @@ public class PhoneData: NSManagedObject {
                 return ""
             }
         }
+    }
+    
+    func dump() {
+        Logger.log("type [\(type)]")
+        Logger.log("value [\(value)]")
     }
 }

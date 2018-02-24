@@ -22,6 +22,16 @@ public class AddressData: NSManagedObject {
         case type
     }
     
+    var isValid: Bool {
+        get {
+            return Util.isNonEmptyFieldValue(street1)
+                || Util.isNonEmptyFieldValue(street2)
+                    || Util.isNonEmptyFieldValue(city)
+                    || Util.isNonEmptyFieldValue(zipcode)
+                  //  || Util.isNonEmptyFieldValue(country)
+        }
+    }
+    
     func parse(data: NSDictionary) {
         street1 = data["street1"] as? String ?? ""
         street2 = data["street2"] as? String ?? ""
@@ -74,5 +84,15 @@ public class AddressData: NSManagedObject {
         case .type:
             type = value
         }
+    }
+    
+    func dump() {
+        Logger.log("street1 [\(street1)]")
+        Logger.log("street2 [\(street2)]")
+        Logger.log("city [\(city)]")
+        Logger.log("state [\(state)]")
+        Logger.log("zipcode [\(zipcode)]")
+        Logger.log("type [\(type)]")
+
     }
 }

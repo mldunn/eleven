@@ -14,7 +14,6 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var itemTableView: UITableView!
     
-    var contactManager = ContactHelper()
     var sectionHeaders = [String]()
     
     override func viewDidLoad() {
@@ -26,21 +25,18 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
         itemTableView.register(UITableViewCell.self, forCellReuseIdentifier: "footerCell")
         
         if Util.checkImport("importJSON") {
-            _ = contactManager.importJSON()
+            _ = ContactHelper.importJSON()
         }
         
-        
-        sectionHeaders = contactManager.letterKeys()
+        sectionHeaders = ContactHelper.letterKeys()
         itemTableView.delegate = self
         itemTableView.dataSource = self
-        
         itemTableView.tableFooterView = UIView()
         
         // listen for contact changed
         NotificationCenter.default.addObserver(self, selector: #selector(contactSaved), name: Notification.Name(rawValue: SAVE_NOTIFICATION), object: nil)
         // listen for contact deleted
         NotificationCenter.default.addObserver(self, selector: #selector(contactDeleted), name: Notification.Name(rawValue: DELETE_NOTIFICATION), object: nil)
-        
     }
     
     @objc func contactDeleted() {
@@ -55,7 +51,6 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -79,7 +74,7 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func getItemCountDisplay() -> String {
-        let count = contactManager.totalItems
+        let count = ContactHelper.totalItems
         var footerText = " Contacts"
         if count == 1 {
             footerText = " Contact"
@@ -89,7 +84,7 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func refreshView() {
         DispatchQueue.main.async {
-            self.sectionHeaders = self.contactManager.letterKeys()
+            self.sectionHeaders = ContactHelper.letterKeys()
             self.itemTableView.reloadData()
         }
     }
@@ -104,7 +99,7 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
     func getItem(_ indexPath: IndexPath) -> ContactData? {
         var item: ContactData?
         if let key = letterForSection(indexPath.section) {
-            if let items = contactManager.itemsForKey(letter: key) {
+            if let items = ContactHelper.itemsForKey(letter: key) {
                 guard indexPath.row >= 0 && indexPath.row < items.count else {
                     return nil
                 }
@@ -137,7 +132,7 @@ extension ContactsViewController {
             return 1
         }
         else if let key = letterForSection(section) {
-            return contactManager.numberOfItems(letter: key)
+            return ContactHelper.numberOfItems(letter: key)
         }
         else {
             return 0

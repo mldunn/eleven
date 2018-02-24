@@ -82,117 +82,90 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZE9-xL-Frw">
-                                <rect key="frame" x="0.0" y="64" width="375" height="150"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="FirstName" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mcC-B2-ZVd" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="8" width="359" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="YLe-gZ-qbR"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="firstNameChanged:" destination="gOo-io-JSe" eventType="editingChanged" id="uER-7f-hKI"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KIW-8Y-gpy" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="84" width="359" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="dzy-Nn-kpK"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="companyChanged:" destination="gOo-io-JSe" eventType="editingDidEnd" id="fpp-9E-nQT"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mGg-DP-OZq" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="46" width="359" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="WZ6-Ci-Qxh"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="lastNameChanged:" destination="gOo-io-JSe" eventType="editingChanged" id="uye-al-6nr"/>
-                                        </connections>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailingMargin" secondItem="mGg-DP-OZq" secondAttribute="trailing" id="4gJ-zh-NZq"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="KIW-8Y-gpy" secondAttribute="trailing" id="9bu-sp-Z9X"/>
-                                    <constraint firstItem="KIW-8Y-gpy" firstAttribute="top" secondItem="mGg-DP-OZq" secondAttribute="bottom" constant="8" id="AqL-PO-Qos"/>
-                                    <constraint firstItem="mcC-B2-ZVd" firstAttribute="top" secondItem="ZE9-xL-Frw" secondAttribute="top" constant="8" id="CWY-c3-xFn"/>
-                                    <constraint firstItem="KIW-8Y-gpy" firstAttribute="leading" secondItem="ZE9-xL-Frw" secondAttribute="leading" constant="8" id="J9Q-gh-beb"/>
-                                    <constraint firstItem="mGg-DP-OZq" firstAttribute="leading" secondItem="ZE9-xL-Frw" secondAttribute="leading" constant="8" id="LqL-xI-GxT"/>
-                                    <constraint firstAttribute="height" constant="150" id="LyN-0S-Vgc"/>
-                                    <constraint firstItem="mGg-DP-OZq" firstAttribute="top" secondItem="mcC-B2-ZVd" secondAttribute="bottom" constant="8" id="RzB-Ds-kEf"/>
-                                    <constraint firstItem="mcC-B2-ZVd" firstAttribute="leading" secondItem="ZE9-xL-Frw" secondAttribute="leading" constant="8" id="fhe-bK-gNV"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="mcC-B2-ZVd" secondAttribute="trailing" id="umY-EA-o3Z"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lfO-fQ-1m0">
-                                <rect key="frame" x="0.0" y="214" width="375" height="409"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="editPhoneCell" editingAccessoryType="detailButton" id="TMY-BN-4fU" customClass="EditPhoneTableViewCell" customModule="ESContacts" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="deleteContactCell" id="AgE-QC-UwM">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AgE-QC-UwM" id="P0D-3p-5Fx">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="editPhoneCell" id="TMY-BN-4fU" customClass="EditPhoneTableViewCell" customModule="ESContacts" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TMY-BN-4fU" id="mwv-Tz-ZeL">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FdZ-ew-t05">
-                                                    <rect key="frame" x="15" y="11" width="60" height="30"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBP-8S-Ec8" userLabel="TypeView">
+                                                    <rect key="frame" x="15" y="0.0" width="60" height="43.5"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FdZ-ew-t05" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="7" width="60" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="44" id="ZK5-zX-A4D"/>
+                                                            </constraints>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="NO"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="NO"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="typeFieldChanged:" destination="TMY-BN-4fU" eventType="editingChanged" id="rtt-e3-b5F"/>
+                                                            </connections>
+                                                        </textField>
+                                                    </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="60" id="WFU-92-csb"/>
-                                                        <constraint firstAttribute="height" constant="30" id="ZK5-zX-A4D"/>
+                                                        <constraint firstAttribute="width" constant="60" id="0Jq-Ab-jZ6"/>
+                                                        <constraint firstItem="FdZ-ew-t05" firstAttribute="leading" secondItem="QBP-8S-Ec8" secondAttribute="leading" id="Zff-M9-ztQ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="FdZ-ew-t05" secondAttribute="trailing" id="hZW-RV-hxm"/>
+                                                        <constraint firstItem="FdZ-ew-t05" firstAttribute="centerY" secondItem="QBP-8S-Ec8" secondAttribute="centerY" id="mkA-gM-I5b"/>
                                                     </constraints>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <action selector="typeFieldChanged:" destination="TMY-BN-4fU" eventType="editingChanged" id="rtt-e3-b5F"/>
-                                                    </connections>
-                                                </textField>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wWz-Zw-gNn" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
-                                                    <rect key="frame" x="95" y="11" width="211" height="30"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="taY-nt-FTt" userLabel="DataView">
+                                                    <rect key="frame" x="83" y="0.0" width="277" height="43.5"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="justified" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wWz-Zw-gNn" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="7" width="277" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="44" id="qsr-tP-y5C"/>
+                                                            </constraints>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                            <textInputTraits key="textInputTraits" textContentType="tel"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="NO"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="numberFieldChanged:" destination="TMY-BN-4fU" eventType="editingChanged" id="hdN-mB-5f9"/>
+                                                            </connections>
+                                                        </textField>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="qsr-tP-y5C"/>
+                                                        <constraint firstAttribute="trailing" secondItem="wWz-Zw-gNn" secondAttribute="trailing" id="GkC-Z4-H2d"/>
+                                                        <constraint firstItem="wWz-Zw-gNn" firstAttribute="centerY" secondItem="taY-nt-FTt" secondAttribute="centerY" id="UZE-Dx-h03"/>
+                                                        <constraint firstItem="wWz-Zw-gNn" firstAttribute="leading" secondItem="taY-nt-FTt" secondAttribute="leading" id="nU3-pf-uE3"/>
                                                     </constraints>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <action selector="numberFieldChanged:" destination="TMY-BN-4fU" eventType="editingChanged" id="hdN-mB-5f9"/>
-                                                    </connections>
-                                                </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRB-AG-ZCp">
-                                                    <rect key="frame" x="314" y="11" width="46" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="ViS-QG-Sph"/>
-                                                        <constraint firstAttribute="width" constant="46" id="evf-WZ-D8p"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
-                                                    <state key="normal" title="Delete"/>
-                                                    <connections>
-                                                        <action selector="deleteButtonTapped:" destination="TMY-BN-4fU" eventType="touchUpInside" id="PZX-nE-XIj"/>
-                                                    </connections>
-                                                </button>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="cRB-AG-ZCp" firstAttribute="top" secondItem="mwv-Tz-ZeL" secondAttribute="topMargin" id="3Qj-OF-MFn"/>
-                                                <constraint firstItem="FdZ-ew-t05" firstAttribute="top" secondItem="mwv-Tz-ZeL" secondAttribute="topMargin" id="4aQ-uZ-2mB"/>
-                                                <constraint firstItem="wWz-Zw-gNn" firstAttribute="top" secondItem="mwv-Tz-ZeL" secondAttribute="topMargin" id="BJU-wN-lqX"/>
-                                                <constraint firstItem="wWz-Zw-gNn" firstAttribute="leading" secondItem="FdZ-ew-t05" secondAttribute="trailing" constant="20" id="FJy-D6-imK"/>
-                                                <constraint firstItem="FdZ-ew-t05" firstAttribute="leading" secondItem="mwv-Tz-ZeL" secondAttribute="leadingMargin" id="iYM-hv-9Yo"/>
-                                                <constraint firstItem="cRB-AG-ZCp" firstAttribute="leading" secondItem="wWz-Zw-gNn" secondAttribute="trailing" constant="8" id="lTI-q5-vR4"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="cRB-AG-ZCp" secondAttribute="trailing" id="nch-YP-jbK"/>
+                                                <constraint firstAttribute="bottom" secondItem="taY-nt-FTt" secondAttribute="bottom" id="4h4-0R-qiw"/>
+                                                <constraint firstItem="QBP-8S-Ec8" firstAttribute="top" secondItem="mwv-Tz-ZeL" secondAttribute="top" id="UAi-hD-140"/>
+                                                <constraint firstItem="QBP-8S-Ec8" firstAttribute="leading" secondItem="mwv-Tz-ZeL" secondAttribute="leading" id="bFJ-RS-Yyk"/>
+                                                <constraint firstItem="taY-nt-FTt" firstAttribute="top" secondItem="mwv-Tz-ZeL" secondAttribute="top" id="bK3-Nt-LKl"/>
+                                                <constraint firstItem="taY-nt-FTt" firstAttribute="leading" secondItem="QBP-8S-Ec8" secondAttribute="trailing" constant="8" id="ec8-kw-Aia"/>
+                                                <constraint firstItem="taY-nt-FTt" firstAttribute="trailing" secondItem="mwv-Tz-ZeL" secondAttribute="trailingMargin" id="h7C-Qd-krk"/>
+                                                <constraint firstAttribute="bottom" secondItem="QBP-8S-Ec8" secondAttribute="bottom" id="uM5-a9-NYt"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -202,152 +175,224 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="editAddressCell" rowHeight="200" id="oF5-OF-vUH" customClass="EditAddressTableViewCell" customModule="ESContacts" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="116" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oF5-OF-vUH" id="L50-51-pDt">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Street Address 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JZC-gx-7CF" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
-                                                    <rect key="frame" x="15" y="11" width="345" height="30"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wFR-eL-k1N" userLabel="TypeView">
+                                                    <rect key="frame" x="15" y="0.0" width="60" height="199.5"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tg1-QY-x78" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="85" width="60" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="meb-Ev-8F8"/>
+                                                            </constraints>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="NO"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="NO"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="typeEndEditing:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="Dwn-Rc-4aZ"/>
+                                                            </connections>
+                                                        </textField>
+                                                    </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="p2Y-hg-pZk"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Tg1-QY-x78" secondAttribute="trailing" id="CrU-ar-RIO"/>
+                                                        <constraint firstItem="Tg1-QY-x78" firstAttribute="leading" secondItem="wFR-eL-k1N" secondAttribute="leading" id="F8V-rv-aAk"/>
+                                                        <constraint firstItem="Tg1-QY-x78" firstAttribute="centerY" secondItem="wFR-eL-k1N" secondAttribute="centerY" id="QYE-Jj-Cwc"/>
+                                                        <constraint firstAttribute="width" constant="60" id="TeD-ad-CDR"/>
                                                     </constraints>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <action selector="stree1EndEditing:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="emb-A6-uJ6"/>
-                                                    </connections>
-                                                </textField>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Street Address 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TPD-Kt-HMO" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
-                                                    <rect key="frame" x="15" y="49" width="345" height="30"/>
+                                                </view>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DC0-N0-js5">
+                                                    <rect key="frame" x="83" y="11" width="277" height="178"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Street Address 1" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JZC-gx-7CF" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="277" height="49.5"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                            <textInputTraits key="textInputTraits" textContentType="address-line1"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="stree1EndEditing:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="emb-A6-uJ6"/>
+                                                            </connections>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Street Address 2" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TPD-Kt-HMO" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="49.5" width="277" height="49.5"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                            <textInputTraits key="textInputTraits" textContentType="address-line2"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="street2EndEditing:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="l1q-PM-ZxH"/>
+                                                            </connections>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="V1z-YI-Cvi" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="99" width="277" height="49"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                            <textInputTraits key="textInputTraits" textContentType="address-level2"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="cityEndEditing:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="jKa-Ix-HT5"/>
+                                                            </connections>
+                                                        </textField>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iCC-B1-abd" userLabel="StateZipView">
+                                                            <rect key="frame" x="0.0" y="148" width="277" height="30"/>
+                                                            <subviews>
+                                                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="State" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wAk-dc-zga" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="194" height="30"/>
+                                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                                    <textInputTraits key="textInputTraits" textContentType="address-level1"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="YES"/>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="NO"/>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="stateEndEditing:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="Zec-a3-aDy"/>
+                                                                    </connections>
+                                                                </textField>
+                                                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zv0-Ro-CjQ" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
+                                                                    <rect key="frame" x="194" y="0.0" width="83" height="30"/>
+                                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                                    <textInputTraits key="textInputTraits" textContentType="postal-code"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="NO"/>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="YES"/>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="zipEndEditing:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="Ifb-K7-9Gf"/>
+                                                                    </connections>
+                                                                </textField>
+                                                            </subviews>
+                                                            <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstItem="zv0-Ro-CjQ" firstAttribute="width" secondItem="wAk-dc-zga" secondAttribute="width" id="6Ri-sn-Ym3"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="7du-V3-2KL"/>
+                                                        <constraint firstItem="V1z-YI-Cvi" firstAttribute="height" secondItem="JZC-gx-7CF" secondAttribute="height" id="XPF-Fm-ls3"/>
+                                                        <constraint firstItem="wAk-dc-zga" firstAttribute="height" secondItem="V1z-YI-Cvi" secondAttribute="height" id="abb-dh-hP4"/>
+                                                        <constraint firstItem="TPD-Kt-HMO" firstAttribute="height" secondItem="JZC-gx-7CF" secondAttribute="height" id="dyb-Oh-Ubr"/>
+                                                        <constraint firstItem="zv0-Ro-CjQ" firstAttribute="height" secondItem="V1z-YI-Cvi" secondAttribute="height" id="lgD-lg-HEO"/>
                                                     </constraints>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <action selector="street2EndEditing:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="l1q-PM-ZxH"/>
-                                                    </connections>
-                                                </textField>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V1z-YI-Cvi" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
-                                                    <rect key="frame" x="15" y="87" width="345" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="w5S-NS-MGM"/>
-                                                    </constraints>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <action selector="cityEndEditing:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="jKa-Ix-HT5"/>
-                                                    </connections>
-                                                </textField>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="State" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wAk-dc-zga" customClass="UITextFIeld">
-                                                    <rect key="frame" x="15" y="125" width="100" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="Fub-da-IGA"/>
-                                                        <constraint firstAttribute="height" constant="30" id="j06-nW-RNI"/>
-                                                    </constraints>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <action selector="stateEndEditing:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="Zec-a3-aDy"/>
-                                                    </connections>
-                                                </textField>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zv0-Ro-CjQ" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
-                                                    <rect key="frame" x="240" y="125" width="120" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="NDh-i6-m5L"/>
-                                                        <constraint firstAttribute="width" constant="120" id="Q6P-N1-UOs"/>
-                                                    </constraints>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <action selector="zipEndEditing:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="Ifb-K7-9Gf"/>
-                                                    </connections>
-                                                </textField>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tg1-QY-x78">
-                                                    <rect key="frame" x="15" y="163" width="100" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="QCS-nT-wud"/>
-                                                        <constraint firstAttribute="height" constant="30" id="meb-Ev-8F8"/>
-                                                    </constraints>
-                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                    <connections>
-                                                        <action selector="typeEndEditing:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="Dwn-Rc-4aZ"/>
-                                                    </connections>
-                                                </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnV-wj-9XZ">
-                                                    <rect key="frame" x="310" y="159" width="50" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="Cmu-SA-4IC"/>
-                                                        <constraint firstAttribute="height" constant="30" id="rcQ-76-H4F"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
-                                                    <state key="normal" title="Delete"/>
-                                                    <connections>
-                                                        <action selector="buttonDeleteTapped:" destination="oF5-OF-vUH" eventType="touchUpInside" id="5wa-sa-4oB"/>
-                                                    </connections>
-                                                </button>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="wAk-dc-zga" firstAttribute="top" secondItem="V1z-YI-Cvi" secondAttribute="bottom" constant="8" id="1ZM-cz-rx4"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="TPD-Kt-HMO" secondAttribute="trailing" id="4fV-9i-ws2"/>
-                                                <constraint firstItem="zv0-Ro-CjQ" firstAttribute="top" secondItem="V1z-YI-Cvi" secondAttribute="bottom" constant="8" id="5kd-Dl-S2F"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="JZC-gx-7CF" secondAttribute="trailing" id="ENa-Je-mr8"/>
-                                                <constraint firstItem="Tg1-QY-x78" firstAttribute="leading" secondItem="L50-51-pDt" secondAttribute="leadingMargin" id="EpM-XY-OGv"/>
-                                                <constraint firstItem="Tg1-QY-x78" firstAttribute="top" secondItem="wAk-dc-zga" secondAttribute="bottom" constant="8" id="FYR-zC-uIW"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="V1z-YI-Cvi" secondAttribute="trailing" id="VU4-lt-u0b"/>
-                                                <constraint firstItem="TPD-Kt-HMO" firstAttribute="leading" secondItem="L50-51-pDt" secondAttribute="leadingMargin" id="YVK-Kd-ZAx"/>
-                                                <constraint firstItem="zv0-Ro-CjQ" firstAttribute="trailing" secondItem="L50-51-pDt" secondAttribute="trailingMargin" id="aWh-ea-ZX6"/>
-                                                <constraint firstItem="wAk-dc-zga" firstAttribute="leading" secondItem="L50-51-pDt" secondAttribute="leadingMargin" id="agc-DO-nwu"/>
-                                                <constraint firstItem="JZC-gx-7CF" firstAttribute="top" secondItem="L50-51-pDt" secondAttribute="topMargin" id="d36-8S-soX"/>
-                                                <constraint firstItem="JZC-gx-7CF" firstAttribute="leading" secondItem="L50-51-pDt" secondAttribute="leadingMargin" id="k3Y-ZL-DtL"/>
-                                                <constraint firstItem="YnV-wj-9XZ" firstAttribute="trailing" secondItem="L50-51-pDt" secondAttribute="trailingMargin" id="lmk-Sf-fET"/>
-                                                <constraint firstItem="V1z-YI-Cvi" firstAttribute="leading" secondItem="L50-51-pDt" secondAttribute="leadingMargin" id="m2m-9E-7aG"/>
-                                                <constraint firstItem="YnV-wj-9XZ" firstAttribute="bottom" secondItem="L50-51-pDt" secondAttribute="bottomMargin" id="s6a-PV-fx1"/>
-                                                <constraint firstItem="TPD-Kt-HMO" firstAttribute="top" secondItem="JZC-gx-7CF" secondAttribute="bottom" constant="8" id="sop-nu-4HP"/>
-                                                <constraint firstItem="V1z-YI-Cvi" firstAttribute="top" secondItem="TPD-Kt-HMO" secondAttribute="bottom" constant="8" id="vSc-9R-RIv"/>
+                                                <constraint firstAttribute="bottom" secondItem="wFR-eL-k1N" secondAttribute="bottom" id="Djb-iK-C2v"/>
+                                                <constraint firstItem="wFR-eL-k1N" firstAttribute="top" secondItem="L50-51-pDt" secondAttribute="top" id="Ppg-Iw-Euu"/>
+                                                <constraint firstAttribute="bottom" secondItem="DC0-N0-js5" secondAttribute="bottom" id="Rm7-lr-Lpj"/>
+                                                <constraint firstItem="DC0-N0-js5" firstAttribute="leading" secondItem="wFR-eL-k1N" secondAttribute="trailing" constant="8" id="d9A-dz-C7c"/>
+                                                <constraint firstItem="wFR-eL-k1N" firstAttribute="leading" secondItem="L50-51-pDt" secondAttribute="leading" id="hbY-iC-GfN"/>
+                                                <constraint firstItem="DC0-N0-js5" firstAttribute="trailing" secondItem="L50-51-pDt" secondAttribute="trailingMargin" id="kpY-Vx-qnE"/>
+                                                <constraint firstItem="DC0-N0-js5" firstAttribute="top" secondItem="L50-51-pDt" secondAttribute="top" id="uxX-C8-Y7d"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="cityField" destination="V1z-YI-Cvi" id="Jif-kS-lmP"/>
-                                            <outlet property="stateField" destination="wAk-dc-zga" id="Lcn-Sk-qEO"/>
-                                            <outlet property="street1Field" destination="JZC-gx-7CF" id="XEI-qX-TlB"/>
-                                            <outlet property="street2Field" destination="TPD-Kt-HMO" id="wre-tw-ASs"/>
-                                            <outlet property="typeField" destination="Tg1-QY-x78" id="yAk-OA-JRj"/>
-                                            <outlet property="zipField" destination="zv0-Ro-CjQ" id="gIk-QY-mZk"/>
+                                            <outlet property="cityField" destination="V1z-YI-Cvi" id="2gf-Bg-HyE"/>
+                                            <outlet property="stateField" destination="wAk-dc-zga" id="gSE-lg-3ET"/>
+                                            <outlet property="street1Field" destination="JZC-gx-7CF" id="2Hn-cz-OUx"/>
+                                            <outlet property="street2Field" destination="TPD-Kt-HMO" id="Z5o-d4-NYU"/>
+                                            <outlet property="typeField" destination="Tg1-QY-x78" id="KKb-VC-xs5"/>
+                                            <outlet property="zipField" destination="zv0-Ro-CjQ" id="BwO-jE-LKE"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addDetailCell" textLabel="259-Qo-GEI" detailTextLabel="XmH-RB-uoL" style="IBUITableViewCellStyleValue2" id="S4X-jM-nlu">
-                                        <rect key="frame" x="0.0" y="272" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="editInfoCell" rowHeight="128" id="hv3-qj-d4p" customClass="EditInfoTableViewCell" customModule="ESContacts" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="316" width="375" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S4X-jM-nlu" id="cR4-yJ-k80">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hv3-qj-d4p" id="FfH-L9-XZN">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="127.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="259-Qo-GEI">
-                                                    <rect key="frame" x="15" y="14" width="91" height="16"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XmH-RB-uoL">
-                                                    <rect key="frame" x="112" y="14" width="35" height="16"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gIE-k1-X5s">
+                                                    <rect key="frame" x="75" y="11" width="285" height="106"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="FirstName" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mcC-B2-ZVd" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="285" height="35.5"/>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" textContentType="name"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="NO"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="firstNameChanged:" destination="hv3-qj-d4p" eventType="editingChanged" id="zif-3P-hmz"/>
+                                                            </connections>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mGg-DP-OZq" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="35.5" width="285" height="35"/>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" textContentType="family-name"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="NO"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="lastNameChanged:" destination="hv3-qj-d4p" eventType="editingChanged" id="hwK-r6-HTw"/>
+                                                            </connections>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="KIW-8Y-gpy" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="70.5" width="285" height="35.5"/>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" textContentType="organization"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="NO"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="NO"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="companyChanged:" destination="hv3-qj-d4p" eventType="editingChanged" id="NZ2-pa-901"/>
+                                                                <action selector="lastNameChanged:" destination="hv3-qj-d4p" eventType="editingChanged" id="mn6-a0-H5W"/>
+                                                            </connections>
+                                                        </textField>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="mcC-B2-ZVd" secondAttribute="trailing" id="XZC-nv-IcX"/>
+                                                        <constraint firstItem="KIW-8Y-gpy" firstAttribute="height" secondItem="mcC-B2-ZVd" secondAttribute="height" id="ZpI-vt-ym3"/>
+                                                        <constraint firstItem="mGg-DP-OZq" firstAttribute="height" secondItem="mcC-B2-ZVd" secondAttribute="height" id="nub-P0-QJJ"/>
+                                                        <constraint firstItem="mcC-B2-ZVd" firstAttribute="leading" secondItem="gIE-k1-X5s" secondAttribute="leading" id="smH-If-nCq"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="gIE-k1-X5s" firstAttribute="top" secondItem="FfH-L9-XZN" secondAttribute="topMargin" id="IDW-Ho-XgZ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="gIE-k1-X5s" secondAttribute="trailing" id="NJp-f7-Xox"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="gIE-k1-X5s" secondAttribute="bottom" id="Yb6-tI-zJL"/>
+                                                <constraint firstItem="gIE-k1-X5s" firstAttribute="leading" secondItem="FfH-L9-XZN" secondAttribute="leadingMargin" constant="60" id="zV0-hd-CN3"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="companyField" destination="KIW-8Y-gpy" id="PxQ-n0-3Cb"/>
+                                            <outlet property="firstNameField" destination="mcC-B2-ZVd" id="aeh-FS-NFv"/>
+                                            <outlet property="lastNameField" destination="mGg-DP-OZq" id="4vi-Vt-Nb2"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="-7" reuseIdentifier="addDetailCell" id="S4X-jM-nlu">
+                                        <rect key="frame" x="0.0" y="444" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S4X-jM-nlu" id="cR4-yJ-k80">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -355,13 +400,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ZE9-xL-Frw" firstAttribute="top" secondItem="9MB-cb-zqJ" secondAttribute="top" id="0y7-TP-7r2"/>
                             <constraint firstItem="9MB-cb-zqJ" firstAttribute="trailing" secondItem="lfO-fQ-1m0" secondAttribute="trailing" id="4ab-fD-6sW"/>
-                            <constraint firstItem="ZE9-xL-Frw" firstAttribute="leading" secondItem="9MB-cb-zqJ" secondAttribute="leading" id="Idz-H9-3LB"/>
                             <constraint firstItem="9MB-cb-zqJ" firstAttribute="bottom" secondItem="lfO-fQ-1m0" secondAttribute="bottom" id="QV6-nU-4r2"/>
-                            <constraint firstItem="lfO-fQ-1m0" firstAttribute="top" secondItem="ZE9-xL-Frw" secondAttribute="bottom" id="UC3-vs-4Ma"/>
-                            <constraint firstItem="ZE9-xL-Frw" firstAttribute="trailing" secondItem="9MB-cb-zqJ" secondAttribute="trailing" id="hjh-dw-iWg"/>
                             <constraint firstItem="lfO-fQ-1m0" firstAttribute="leading" secondItem="9MB-cb-zqJ" secondAttribute="leading" id="k7E-OF-H6W"/>
+                            <constraint firstItem="lfO-fQ-1m0" firstAttribute="top" secondItem="9MB-cb-zqJ" secondAttribute="top" id="vV8-Oo-ze8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9MB-cb-zqJ"/>
                     </view>
@@ -380,11 +422,8 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="companyField" destination="KIW-8Y-gpy" id="IIf-gi-1nu"/>
                         <outlet property="detailsTableView" destination="lfO-fQ-1m0" id="vNc-xg-5G2"/>
                         <outlet property="doneButton" destination="KnO-S4-snR" id="tAK-vx-nOF"/>
-                        <outlet property="firstNameField" destination="mcC-B2-ZVd" id="kSA-cx-l6k"/>
-                        <outlet property="lastNameField" destination="mGg-DP-OZq" id="kEh-di-LyQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Krq-5A-8oj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -600,7 +639,6 @@
         <!--Navigation Controller-->
         <scene sceneID="fQm-bi-IDu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="otf-Yo-97N" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qHu-Nj-q9W" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FNK-tC-DVO">
@@ -612,11 +650,12 @@
                         <segue destination="gOo-io-JSe" kind="relationship" relationship="rootViewController" id="zA6-Vh-8n1"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="otf-Yo-97N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1626" y="897"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Q6c-26-5Gj"/>
+        <segue reference="Dsh-Pq-lw3"/>
     </inferredMetricsTieBreakers>
 </document>

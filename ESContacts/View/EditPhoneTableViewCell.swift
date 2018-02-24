@@ -8,22 +8,22 @@
 
 import UIKit
 
-protocol EditPhoneDelegate {
-    func deletePhone(_ phone: PhoneData)
-}
 
 class EditPhoneTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var numberField: UITextField!
-    @IBOutlet weak var typeField: UITextField!
+    @IBOutlet weak var numberField: BorderlessTextField!
+    @IBOutlet weak var typeField: BorderlessTextField!
     override func awakeFromNib() {
         super.awakeFromNib()
-        layer.borderWidth = 0
-        layer.backgroundColor = UIColor.blue.cgColor
     }
     
-    var delegate: EditPhoneDelegate?
-    var phone: PhoneData!
+    var phone: PhoneData?
+    
+    override func prepareForReuse() {
+        typeField.text = ""
+        numberField.text = ""
+        phone = nil
+    }
     
     func configureCell(_ info: PhoneData) {
         typeField.text = info.type
@@ -38,8 +38,5 @@ class EditPhoneTableViewCell: UITableViewCell {
         phone?.value = numberField.text
     }
     
-    @IBAction func deleteButtonTapped(_ sender: Any) {
-        delegate?.deletePhone(phone)
-    }
-    
+   
 }

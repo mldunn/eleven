@@ -16,7 +16,7 @@ class ContactHelper {
     
     static var WILDCARD: String = "#"
     
-    func importContact(json: NSDictionary) {
+    static func importContact(json: NSDictionary) {
         
         guard let appDelegate =
             UIApplication.shared.delegate as? AppDelegate else {
@@ -39,7 +39,7 @@ class ContactHelper {
     
     
     
-    func importJSON() {
+    static func importJSON() {
         
         do {
             
@@ -69,7 +69,7 @@ class ContactHelper {
     }
    
     
-    func deleteContact(_ contact: ContactData) {
+    static func deleteContact(_ contact: ContactData) {
         guard let appDelegate =
             UIApplication.shared.delegate as? AppDelegate else {
                 return
@@ -88,12 +88,34 @@ class ContactHelper {
         
     }
     
-   
+    static func getContact(_  id: String) -> ContactData? {
+        guard let appDelegate =
+            UIApplication.shared.delegate as? AppDelegate else {
+                return nil
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "ContactData")
+        
+        do {
+            fetchRequest.predicate = NSPredicate(format: "id = %@", id)
+            
+            
+            let items = try managedContext.fetch(fetchRequest)
+            return items.first as? ContactData
+            
+        }
+        catch let error as NSError {
+            Logger.error(error, message: "get contact")
+        }
+        return nil
+        
+    }
+    
     
     
     // section management
     
-    var totalItems: Int {
+    static var totalItems: Int {
         get {
             var count = 0
             guard let appDelegate =
@@ -114,7 +136,7 @@ class ContactHelper {
         }
     }
     
-    func letterKeys() -> [String] {
+    static func letterKeys() -> [String] {
         
         var keys: [String] = []
         
@@ -159,14 +181,14 @@ class ContactHelper {
         
     }
     
-    func numberOfItems(letter: String) -> Int {
+    static func numberOfItems(letter: String) -> Int {
         if let items = itemsForKey(letter: letter) {
             return items.count
         }
         return 0
     }
     
-    func itemsForKey(letter: String) -> [NSManagedObject]? {
+    static func itemsForKey(letter: String) -> [NSManagedObject]? {
         
         var items: [NSManagedObject]?
         

@@ -27,6 +27,14 @@ class Util {
         }
         return needsImport
     }
+    
+    
+    static func isNonEmptyFieldValue(_ value: String?) -> Bool {
+        if let val = value {
+            return !val.isEmpty
+        }
+        return false
+    }
 }
 
 

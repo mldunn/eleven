@@ -17,8 +17,8 @@
         <attribute name="sectionKey" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sortIndex" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="sortName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="addressItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AddressData" syncable="YES"/>
-        <relationship name="phoneItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PhoneData" syncable="YES"/>
+        <relationship name="addressItems" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="AddressData" syncable="YES"/>
+        <relationship name="phoneItems" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="PhoneData" syncable="YES"/>
     </entity>
     <entity name="PhoneData" representedClassName="PhoneData" syncable="YES">
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
@@ -26,7 +26,7 @@
     </entity>
     <elements>
         <element name="AddressData" positionX="-423" positionY="27" width="128" height="150"/>
-        <element name="ContactData" positionX="-281" positionY="-216" width="128" height="30"/>
+        <element name="ContactData" positionX="-281" positionY="-216" width="128" height="180"/>
         <element name="PhoneData" positionX="-38" positionY="78" width="128" height="75"/>
     </elements>
 </model>
