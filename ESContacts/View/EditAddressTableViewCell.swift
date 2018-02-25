@@ -34,6 +34,9 @@ class EditAddressTableViewCell: UITableViewCell {
         address = info
     }
     
+    override func becomeFirstResponder() -> Bool {
+        return street1Field.becomeFirstResponder()
+    }
    
     @IBAction func street1Changed(_ sender: Any) {
         address?.street1 = street1Field.text

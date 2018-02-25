@@ -22,5 +22,7 @@ class PhoneTableViewCell: UITableViewCell {
         typeLabel.text = info.type
         valueLabel.text = info.formatted
     }
+    
+   
 
 }

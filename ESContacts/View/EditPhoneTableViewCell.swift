@@ -33,6 +33,9 @@ class EditPhoneTableViewCell: UITableViewCell {
         phone = info
     }
    
+    override func becomeFirstResponder() -> Bool {
+        return numberField.becomeFirstResponder()
+    }
     
     @IBAction func numberFieldChanged(_ sender: Any) {
         phone?.value = numberField.text

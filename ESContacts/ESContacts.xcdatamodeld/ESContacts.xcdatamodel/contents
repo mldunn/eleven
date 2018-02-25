@@ -17,9 +17,9 @@
         <attribute name="sectionKey" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sortIndex" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="sortName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="addressItems" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="AddressData" syncable="YES"/>
-        <relationship name="emailItems" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="EmailData" syncable="YES"/>
-        <relationship name="phoneItems" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="PhoneData" syncable="YES"/>
+        <relationship name="addressItems" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="AddressData" syncable="YES"/>
+        <relationship name="emailItems" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="EmailData" syncable="YES"/>
+        <relationship name="phoneItems" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="PhoneData" syncable="YES"/>
     </entity>
     <entity name="EmailData" representedClassName="EmailData" syncable="YES">
         <attribute name="type" optional="YES" attributeType="String" defaultValueString="home" syncable="YES"/>

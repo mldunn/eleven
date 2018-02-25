@@ -29,6 +29,12 @@ class EditEmailTableViewCell: UITableViewCell {
         email = info
     }
    
+    
+    override func becomeFirstResponder() -> Bool {
+        return valueField.becomeFirstResponder()
+    }
+    
+    
     @IBAction func typeButtonTapped(_ sender: Any) {
         delegate?.changeLabel(email)
     }

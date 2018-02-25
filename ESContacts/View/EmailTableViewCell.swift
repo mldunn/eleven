@@ -22,4 +22,5 @@ class EmailTableViewCell: UITableViewCell {
         typeLabel.text = info.type
         valueLabel.text = info.value
     }
+    
 }

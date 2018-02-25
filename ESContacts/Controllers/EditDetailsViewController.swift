@@ -173,7 +173,13 @@
                         rowIndex = newContact.addAddress() - 1
                     }
                     let indexPath = IndexPath(row: rowIndex, section: section)
-                    detailsTableView.insertRows(at: [indexPath], with: .automatic)
+                    DispatchQueue.main.async {
+                        
+                        self.detailsTableView.insertRows(at: [indexPath], with: .automatic)
+                        if let cell = self.detailsTableView.cellForRow(at: indexPath) {
+                            cell.becomeFirstResponder()
+                        }
+                    }
                 }
             }
             
@@ -262,7 +268,7 @@
             
             func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
                 if editingStyle == .delete {
-                    // deleteRow(indexPath)
+                    removeDetailRow(indexPath)
                 }
                 else if editingStyle == .insert {
                     addDetailRow(indexPath.section)
