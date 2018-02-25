@@ -10,13 +10,7 @@ import Foundation
 
 
 class Util {
-    static func logException(_ function: String, error: Error) {
-        print("\(function) exception with error: \(error.localizedDescription)")
-    }
-    
-    static func logMessage(_ msg: String) {
-        print("MSG: \(msg)")
-    }
+   
     
     static func checkImport(_ key: String) -> Bool {
         var needsImport: Bool = false

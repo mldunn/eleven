@@ -15,7 +15,9 @@ class LabelPickerButton: UIButton {
         // Initialization code
     
         titleLabel?.font = Fonts.tableViewDetail
-    
+        titleLabel?.textAlignment = .left
+        contentHorizontalAlignment = .left
+        contentEdgeInsets.left = 8.0
         setTitleColor(Colors.customBlue, for: .normal)
     }
     

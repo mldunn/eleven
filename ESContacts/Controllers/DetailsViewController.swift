@@ -11,7 +11,7 @@ import UIKit
 class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var contact: ContactData?
-    var sections = ["phone","email","address"]
+    
 
     @IBOutlet weak var detailsTableView: UITableView!
     
@@ -50,10 +50,6 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func editButtonTapped(_ sender: Any) {
-        editContact()
-    }
-    
-    func editContact() {
         performSegue(withIdentifier: "editContact", sender: contact)
     }
     
@@ -94,7 +90,8 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
 extension DetailsViewController {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
+        //skip the info section as it not in the table
+        return TypeLabels.sections.count - 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

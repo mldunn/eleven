@@ -33,7 +33,7 @@ class ContactHelper {
             try managedContext.save()
         }
         catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
+            Logger.error(error, message: "import contact")
         }
     }
     
@@ -55,16 +55,16 @@ class ContactHelper {
                         }
                     }
                     else {
-                        Util.logMessage("JSON error")
+                        Logger.error(NSError(), message: "no contacts in JSON file")
                     }
                 }
             }
             else {
-                Util.logMessage("JSON file not found")
+                Logger.error(NSError(), message: "JSON file no found in bundle")
             }
         }
-        catch {
-            Util.logException("getTopicsFromBundle", error: error)
+        catch let error as NSError {
+           Logger.error(error, message: "import JSON")
         }
     }
    
@@ -83,7 +83,7 @@ class ContactHelper {
             
         }
         catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
+            Logger.error(error, message: "delete contact")
         }
         
     }
@@ -174,7 +174,7 @@ class ContactHelper {
             }
         }
         catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
+            Logger.error(error, message: "letterKeys")
         }
         
         return keys
@@ -208,7 +208,7 @@ class ContactHelper {
             items = try managedContext.fetch(fetchRequest)
         }
         catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
+            Logger.error(error, message: "itemsForKey")
         }
         return items
     }

@@ -30,7 +30,7 @@
             var changeLabelSection: String = ""
             
             var managedContext: NSManagedObjectContext?
-            var dataSections = ["info", "phone", "email", "address"]
+            
             var rowHeights: [CGFloat] = [134, 44, 44, 200, 44]
             
             var isExistingContact: Bool {
@@ -62,9 +62,11 @@
             }
             
             override func viewDidAppear(_ animated: Bool) {
-                if let section = dataSections.index(of: changeLabelSection)  {
-                    detailsTableView.reloadSections([section], with: .none)
+                if let section = TypeLabels.sections.index(of: changeLabelSection)  {
                     changeLabelSection = ""
+                    DispatchQueue.main.async {
+                        self.detailsTableView.reloadSections([section], with: .none)
+                    }
                 }
             }
             
@@ -79,7 +81,6 @@
                 }
             }
            
-            
             func infoChanged() {
                 doneButton.isEnabled = newContact.isValid
             }
@@ -172,8 +173,7 @@
                         rowIndex = newContact.addAddress() - 1
                     }
                     let indexPath = IndexPath(row: rowIndex, section: section)
-                    detailsTableView.insertRows(at: [indexPath], with: .top)
-                    detailsTableView.scrollToRow(at: indexPath, at: .top, animated: true)
+                    detailsTableView.insertRows(at: [indexPath], with: .automatic)
                 }
             }
             
@@ -187,8 +187,11 @@
                 else if indexPath.section == 3, let info = getAddressInfo(indexPath.row) {
                     newContact.removeFromAddressItems(info)
                 }
-                detailsTableView.deleteRows(at: [indexPath], with: .automatic)
-                detailsTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+                DispatchQueue.main.async {
+                  
+                    self.detailsTableView.deleteRows(at: [indexPath], with: .automatic)
+                    self.detailsTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+                }
             }
         }
         
@@ -231,22 +234,6 @@
                 return false
             }
             
-            @available(iOS 11.0, *)
-            func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-                return nil
-            }
-            
-            @available(iOS 11.0, *)
-            func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-                let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self]  (action, view, handler) in
-                    self?.removeDetailRow(indexPath)
-                }
-                deleteAction.backgroundColor = .red
-                let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
-                configuration.performsFirstActionWithFullSwipe = false
-                return configuration
-            }
-            
             func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
                 let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { [weak self] (action, indexPath) in
                     self?.removeDetailRow(indexPath)
@@ -283,7 +270,7 @@
             }
             
             func numberOfSections(in tableView: UITableView) -> Int {
-                var count = dataSections.count
+                var count = TypeLabels.sections.count
                 
                 if isExistingContact {
                     count += 1
@@ -310,7 +297,7 @@
                 if isAddDetailsRow(indexPath: indexPath) {
                     
                     if let cell = tableView.dequeueReusableCell(withIdentifier: "addDetailCell") {
-                        cell.textLabel?.text = "add " + dataSections[indexPath.section]
+                        cell.textLabel?.text = "add " + TypeLabels.sections[indexPath.section]
                         cell.textLabel?.font = Fonts.tableViewDetail
                         return cell
                     }
