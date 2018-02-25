@@ -49,7 +49,7 @@ public class PhoneData: NSManagedObject {
     }
     
     func dump() {
-        Logger.log("type [\(type)]")
-        Logger.log("value [\(value)]")
+        Logger.log("type [\(type ?? "") ]")
+        Logger.log("value [\(String(describing: value))]")
     }
 }

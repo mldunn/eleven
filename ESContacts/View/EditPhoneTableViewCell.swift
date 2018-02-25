@@ -11,8 +11,8 @@ import UIKit
 
 class EditPhoneTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var numberField: BorderlessTextField!
-    @IBOutlet weak var typeField: BorderlessTextField!
+    @IBOutlet weak var numberField: ItemTextField!
+    @IBOutlet weak var typeField: ItemTextField!
     override func awakeFromNib() {
         super.awakeFromNib()
     }

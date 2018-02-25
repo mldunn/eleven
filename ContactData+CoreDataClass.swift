@@ -42,6 +42,16 @@ public class ContactData: NSManagedObject {
                 }
             }
         }
+        
+        if let emails = data["email"] as? NSArray {
+            for item in emails {
+                if let ejson = item as? NSDictionary {
+                    let email = EmailData(context: managedContext)
+                    email.parse(data: ejson)
+                    addToEmailItems(email)
+                }
+            }
+        }
       
     }
     
@@ -70,38 +80,28 @@ public class ContactData: NSManagedObject {
         }
     }
     
-    
-    /*
-    public func copy(with zone: NSZone? = nil) -> Any {
-        
-        guard let appDelegate =
-            UIApplication.shared.delegate as? AppDelegate else {
-                return NSNull()
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let cd = ContactData(context: managedContext)
-        
-        cd.firstName = firstName
-        cd.lastName = lastName
-        cd.company = company
-        cd.sectionKey = sectionKey
-        cd.sortIndex = sortIndex
-        cd.sortName = sortName
-        cd.id = id
-        
-        if let items = addressItems {
-            cd.addToAddressItems(items)
-        }
-        if let items = phoneItems {
-            cd.addToPhoneItems(items)
-        }
-       
-        return cd
-       
+    var isValid: Bool {
+        return !( (firstName?.isEmpty ?? true) && (lastName?.isEmpty ?? true) && (company?.isEmpty ?? true) )
     }
-    */
+    
+    var phoneCount: Int {
+        get {
+            return phoneItems?.count ?? 0
+        }
+    }
+   
+    var emailCount: Int {
+        get {
+            return emailItems?.count ?? 0
+        }
+    }
+    
+    var addressCount: Int {
+        get {
+            return addressItems?.count ?? 0
+        }
+    }
+    
     
     func getSortInfo() {
         // store the sort info here
@@ -218,6 +218,22 @@ public class ContactData: NSManagedObject {
         return item
     }
     
+    func getEmailByIndex(_ index: Int) -> EmailData? {
+        
+        var item: EmailData?
+        if let items = emailItems {
+            let arr = Array(items)
+            
+            guard index >= 0 && index < arr.count else {
+                return nil
+            }
+            
+            item = arr[index] as? EmailData
+            
+        }
+        return item
+    }
+    
     func getAddressByIndex(_ index: Int) -> AddressData? {
         var item: AddressData?
         if let items = addressItems {
@@ -242,6 +258,16 @@ public class ContactData: NSManagedObject {
         dumpSet(phoneItems)
         return phoneCount
     }
+   
+    func addEmail() -> Int {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate  {
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let email = EmailData(context: managedContext)
+            addToEmailItems(email)
+        }
+        dumpSet(emailItems)
+        return emailCount
+    }
     
     func addAddress() -> Int {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate  {
@@ -252,21 +278,6 @@ public class ContactData: NSManagedObject {
         return addressCount
     }
     
-    var phoneCount: Int {
-        get {
-            return phoneItems?.count ?? 0
-        }
-    }
-    
-    var isValid: Bool {
-        return !( (firstName?.isEmpty ?? true) && (lastName?.isEmpty ?? true) && (company?.isEmpty ?? true) )
-    }
-    
-    var addressCount: Int {
-        get {
-            return addressItems?.count ?? 0
-        }
-    }
     
     func sanitize() {
         if let set = phoneItems {
@@ -297,21 +308,35 @@ public class ContactData: NSManagedObject {
                 removeFromAddressItems(ii)
             }
         }
-        
+        if let set = emailItems {
+            let items = Array(set)
+            var invalidItems = [EmailData]()
+            for item in items {
+                
+                if let dataItem = item as? EmailData, !dataItem.isValid {
+                    invalidItems.append(dataItem)
+                }
+            }
+            for ii in invalidItems {
+                removeFromEmailItems(ii)
+            }
+            
+        }
         
     }
     
     
     func dump() {
-        Logger.log("id [\(id)]")
-        Logger.log("firstname [\(firstName)]")
-        Logger.log("lastname [\(lastName)]")
-        Logger.log("company [\(company)]")
-        Logger.log("sortKey [\(sectionKey)]")
-        Logger.log("sortName [\(sortName)]")
+        Logger.log("id [\(String(describing: id))]")
+        Logger.log("firstname [\(String(describing: firstName))]")
+        Logger.log("lastname [\(String(describing: lastName))]")
+        Logger.log("company [\(String(describing: company))]")
+        Logger.log("sortKey [\(String(describing: sectionKey))]")
+        Logger.log("sortName [\(String(describing: sortName))]")
         dumpSet(phoneItems)
         dumpSet(addressItems)
     }
+    
     func dumpSet(_ set: NSOrderedSet?) {
         if let items = set {
             let arr = Array(items)

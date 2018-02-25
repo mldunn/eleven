@@ -8,7 +8,20 @@
 
 import Foundation
 import UIKit
+import CoreData
 
+extension NSManagedObject {
+    
+    class func entityName() -> String {
+        return String(describing: self)
+    }
+    
+    convenience init(context: NSManagedObjectContext) {
+        let eName = type(of: self).entityName()
+        let entity = NSEntityDescription.entity(forEntityName: eName, in: context)!
+        self.init(entity: entity, insertInto: context)
+    }
+}
 
 extension UILabel {
     

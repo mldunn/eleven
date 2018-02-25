@@ -26,6 +26,7 @@ extension ContactData {
     @NSManaged public var sortName: String?
     @NSManaged public var addressItems: NSOrderedSet?
     @NSManaged public var phoneItems: NSOrderedSet?
+    @NSManaged public var emailItems: NSOrderedSet?
 
 }
 
@@ -96,5 +97,40 @@ extension ContactData {
 
     @objc(removePhoneItems:)
     @NSManaged public func removeFromPhoneItems(_ values: NSOrderedSet)
+
+}
+
+// MARK: Generated accessors for emailItems
+extension ContactData {
+
+    @objc(insertObject:inEmailItemsAtIndex:)
+    @NSManaged public func insertIntoEmailItems(_ value: EmailData, at idx: Int)
+
+    @objc(removeObjectFromEmailItemsAtIndex:)
+    @NSManaged public func removeFromEmailItems(at idx: Int)
+
+    @objc(insertEmailItems:atIndexes:)
+    @NSManaged public func insertIntoEmailItems(_ values: [EmailData], at indexes: NSIndexSet)
+
+    @objc(removeEmailItemsAtIndexes:)
+    @NSManaged public func removeFromEmailItems(at indexes: NSIndexSet)
+
+    @objc(replaceObjectInEmailItemsAtIndex:withObject:)
+    @NSManaged public func replaceEmailItems(at idx: Int, with value: EmailData)
+
+    @objc(replaceEmailItemsAtIndexes:withEmailItems:)
+    @NSManaged public func replaceEmailItems(at indexes: NSIndexSet, with values: [EmailData])
+
+    @objc(addEmailItemsObject:)
+    @NSManaged public func addToEmailItems(_ value: EmailData)
+
+    @objc(removeEmailItemsObject:)
+    @NSManaged public func removeFromEmailItems(_ value: EmailData)
+
+    @objc(addEmailItems:)
+    @NSManaged public func addToEmailItems(_ values: NSOrderedSet)
+
+    @objc(removeEmailItems:)
+    @NSManaged public func removeFromEmailItems(_ values: NSOrderedSet)
 
 }

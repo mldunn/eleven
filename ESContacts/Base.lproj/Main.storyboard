@@ -104,10 +104,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBP-8S-Ec8" userLabel="TypeView">
-                                                    <rect key="frame" x="15" y="0.0" width="60" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="43.5"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FdZ-ew-t05" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="7" width="60" height="30"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="44" id="ZK5-zX-A4D"/>
                                                             </constraints>
@@ -131,10 +131,10 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="taY-nt-FTt" userLabel="DataView">
-                                                    <rect key="frame" x="83" y="0.0" width="277" height="43.5"/>
+                                                    <rect key="frame" x="68" y="0.0" width="307" height="43.5"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="justified" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wWz-Zw-gNn" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="7" width="277" height="30"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="307" height="44"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="44" id="qsr-tP-y5C"/>
                                                             </constraints>
@@ -164,7 +164,7 @@
                                                 <constraint firstItem="QBP-8S-Ec8" firstAttribute="leading" secondItem="mwv-Tz-ZeL" secondAttribute="leading" id="bFJ-RS-Yyk"/>
                                                 <constraint firstItem="taY-nt-FTt" firstAttribute="top" secondItem="mwv-Tz-ZeL" secondAttribute="top" id="bK3-Nt-LKl"/>
                                                 <constraint firstItem="taY-nt-FTt" firstAttribute="leading" secondItem="QBP-8S-Ec8" secondAttribute="trailing" constant="8" id="ec8-kw-Aia"/>
-                                                <constraint firstItem="taY-nt-FTt" firstAttribute="trailing" secondItem="mwv-Tz-ZeL" secondAttribute="trailingMargin" id="h7C-Qd-krk"/>
+                                                <constraint firstItem="taY-nt-FTt" firstAttribute="trailing" secondItem="mwv-Tz-ZeL" secondAttribute="trailing" id="h7C-Qd-krk"/>
                                                 <constraint firstAttribute="bottom" secondItem="QBP-8S-Ec8" secondAttribute="bottom" id="uM5-a9-NYt"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -182,7 +182,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wFR-eL-k1N" userLabel="TypeView">
-                                                    <rect key="frame" x="15" y="0.0" width="60" height="199.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="199.5"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tg1-QY-x78" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="85" width="60" height="30"/>
@@ -196,9 +196,6 @@
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="NO"/>
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="NO"/>
                                                             </userDefinedRuntimeAttributes>
-                                                            <connections>
-                                                                <action selector="typeEndEditing:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="Dwn-Rc-4aZ"/>
-                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                     <constraints>
@@ -209,36 +206,36 @@
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DC0-N0-js5">
-                                                    <rect key="frame" x="83" y="11" width="277" height="178"/>
+                                                    <rect key="frame" x="68" y="0.0" width="307" height="199.5"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Street Address 1" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JZC-gx-7CF" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="277" height="49.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="307" height="40"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                            <textInputTraits key="textInputTraits" textContentType="address-line1"/>
+                                                            <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="address-line1"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="YES"/>
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="YES"/>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
-                                                                <action selector="stree1EndEditing:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="emb-A6-uJ6"/>
+                                                                <action selector="street1DidChange:" destination="oF5-OF-vUH" eventType="editingChanged" id="W8P-dQ-WjC"/>
                                                             </connections>
                                                         </textField>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Street Address 2" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TPD-Kt-HMO" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="49.5" width="277" height="49.5"/>
+                                                            <rect key="frame" x="0.0" y="40" width="307" height="40.5"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                            <textInputTraits key="textInputTraits" textContentType="address-line2"/>
+                                                            <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="address-line2"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="YES"/>
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="YES"/>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
-                                                                <action selector="street2EndEditing:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="l1q-PM-ZxH"/>
+                                                                <action selector="street2DidChange:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="mPa-Zl-KrO"/>
                                                             </connections>
                                                         </textField>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="V1z-YI-Cvi" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="99" width="277" height="49"/>
+                                                            <rect key="frame" x="0.0" y="80.5" width="307" height="40"/>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                             <textInputTraits key="textInputTraits" textContentType="address-level2"/>
@@ -247,36 +244,36 @@
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="YES"/>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
-                                                                <action selector="cityEndEditing:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="jKa-Ix-HT5"/>
+                                                                <action selector="cityDidChange:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="xge-XD-NjK"/>
                                                             </connections>
                                                         </textField>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iCC-B1-abd" userLabel="StateZipView">
-                                                            <rect key="frame" x="0.0" y="148" width="277" height="30"/>
+                                                            <rect key="frame" x="0.0" y="120.5" width="307" height="39.5"/>
                                                             <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="State" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wAk-dc-zga" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="194" height="30"/>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="State" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wAk-dc-zga" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="153.5" height="39.5"/>
                                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                                     <textInputTraits key="textInputTraits" textContentType="address-level1"/>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="YES"/>
-                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="NO"/>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="YES"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                     <connections>
-                                                                        <action selector="stateEndEditing:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="Zec-a3-aDy"/>
+                                                                        <action selector="stateDidChange:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="ERv-ks-Mbh"/>
                                                                     </connections>
                                                                 </textField>
-                                                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zv0-Ro-CjQ" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
-                                                                    <rect key="frame" x="194" y="0.0" width="83" height="30"/>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zv0-Ro-CjQ" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
+                                                                    <rect key="frame" x="153.5" y="0.0" width="153.5" height="39.5"/>
                                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                                     <textInputTraits key="textInputTraits" textContentType="postal-code"/>
                                                                     <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="NO"/>
+                                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="YES"/>
                                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="YES"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                     <connections>
-                                                                        <action selector="zipEndEditing:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="Ifb-K7-9Gf"/>
+                                                                        <action selector="zipDidChange:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="cL5-C9-dD5"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
@@ -285,12 +282,26 @@
                                                                 <constraint firstItem="zv0-Ro-CjQ" firstAttribute="width" secondItem="wAk-dc-zga" secondAttribute="width" id="6Ri-sn-Ym3"/>
                                                             </constraints>
                                                         </stackView>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Country" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kl1-aP-62Z" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="160" width="307" height="39.5"/>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" textContentType="country-name"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="NO"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="countryDidChange:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="t5p-KL-7bp"/>
+                                                            </connections>
+                                                        </textField>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="V1z-YI-Cvi" firstAttribute="height" secondItem="JZC-gx-7CF" secondAttribute="height" id="XPF-Fm-ls3"/>
                                                         <constraint firstItem="wAk-dc-zga" firstAttribute="height" secondItem="V1z-YI-Cvi" secondAttribute="height" id="abb-dh-hP4"/>
                                                         <constraint firstItem="TPD-Kt-HMO" firstAttribute="height" secondItem="JZC-gx-7CF" secondAttribute="height" id="dyb-Oh-Ubr"/>
+                                                        <constraint firstItem="kl1-aP-62Z" firstAttribute="height" secondItem="V1z-YI-Cvi" secondAttribute="height" id="ja7-oZ-8jF"/>
                                                         <constraint firstItem="zv0-Ro-CjQ" firstAttribute="height" secondItem="V1z-YI-Cvi" secondAttribute="height" id="lgD-lg-HEO"/>
                                                     </constraints>
                                                 </stackView>
@@ -301,13 +312,14 @@
                                                 <constraint firstAttribute="bottom" secondItem="DC0-N0-js5" secondAttribute="bottom" id="Rm7-lr-Lpj"/>
                                                 <constraint firstItem="DC0-N0-js5" firstAttribute="leading" secondItem="wFR-eL-k1N" secondAttribute="trailing" constant="8" id="d9A-dz-C7c"/>
                                                 <constraint firstItem="wFR-eL-k1N" firstAttribute="leading" secondItem="L50-51-pDt" secondAttribute="leading" id="hbY-iC-GfN"/>
-                                                <constraint firstItem="DC0-N0-js5" firstAttribute="trailing" secondItem="L50-51-pDt" secondAttribute="trailingMargin" id="kpY-Vx-qnE"/>
+                                                <constraint firstItem="DC0-N0-js5" firstAttribute="trailing" secondItem="L50-51-pDt" secondAttribute="trailing" id="kpY-Vx-qnE"/>
                                                 <constraint firstItem="DC0-N0-js5" firstAttribute="top" secondItem="L50-51-pDt" secondAttribute="top" id="uxX-C8-Y7d"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="cityField" destination="V1z-YI-Cvi" id="2gf-Bg-HyE"/>
+                                            <outlet property="countryField" destination="kl1-aP-62Z" id="UP2-yv-gsz"/>
                                             <outlet property="stateField" destination="wAk-dc-zga" id="gSE-lg-3ET"/>
                                             <outlet property="street1Field" destination="JZC-gx-7CF" id="2Hn-cz-OUx"/>
                                             <outlet property="street2Field" destination="TPD-Kt-HMO" id="Z5o-d4-NYU"/>
@@ -393,7 +405,86 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S4X-jM-nlu" id="cR4-yJ-k80">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <edgeInsets key="layoutMargins" top="8" left="0.0" bottom="8" right="8"/>
                                         </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="editEmailCell" id="z6H-3V-Etr" customClass="EditEmailTableViewCell" customModule="ESContacts" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="488" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z6H-3V-Etr" id="gM0-6I-lav">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2My-xX-ILV" userLabel="TypeView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="43.5"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="39G-2k-pwI" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="44" id="TF1-UU-tjQ"/>
+                                                            </constraints>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="NO"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="NO"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="typeFieldChanged:" destination="z6H-3V-Etr" eventType="editingChanged" id="2r0-hj-UdQ"/>
+                                                            </connections>
+                                                        </textField>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="39G-2k-pwI" firstAttribute="leading" secondItem="2My-xX-ILV" secondAttribute="leading" id="4D2-Se-wVf"/>
+                                                        <constraint firstAttribute="trailing" secondItem="39G-2k-pwI" secondAttribute="trailing" id="Vwq-aT-uiv"/>
+                                                        <constraint firstItem="39G-2k-pwI" firstAttribute="centerY" secondItem="2My-xX-ILV" secondAttribute="centerY" id="bc7-d3-4J6"/>
+                                                        <constraint firstAttribute="width" constant="60" id="d3D-OH-kgy"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bk1-be-7NF" userLabel="DataView">
+                                                    <rect key="frame" x="68" y="0.0" width="307" height="43.5"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="justified" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Qgk-Hi-WCt" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="307" height="44"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="44" id="BjH-Wj-IF9"/>
+                                                            </constraints>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                            <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="email"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="NO"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="valueFieldChanged:" destination="z6H-3V-Etr" eventType="editingChanged" id="3OU-ts-OSP"/>
+                                                            </connections>
+                                                        </textField>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="Qgk-Hi-WCt" firstAttribute="centerY" secondItem="Bk1-be-7NF" secondAttribute="centerY" id="22U-rB-vxY"/>
+                                                        <constraint firstItem="Qgk-Hi-WCt" firstAttribute="leading" secondItem="Bk1-be-7NF" secondAttribute="leading" id="QR2-oi-oeB"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Qgk-Hi-WCt" secondAttribute="trailing" id="pDA-Fc-21O"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2My-xX-ILV" firstAttribute="top" secondItem="gM0-6I-lav" secondAttribute="top" id="1os-Y7-Zqb"/>
+                                                <constraint firstAttribute="trailing" secondItem="Bk1-be-7NF" secondAttribute="trailing" id="8l6-ey-LYU"/>
+                                                <constraint firstAttribute="bottom" secondItem="2My-xX-ILV" secondAttribute="bottom" id="DUd-tT-YeX"/>
+                                                <constraint firstAttribute="bottom" secondItem="Bk1-be-7NF" secondAttribute="bottom" id="HWZ-de-9eO"/>
+                                                <constraint firstItem="2My-xX-ILV" firstAttribute="leading" secondItem="gM0-6I-lav" secondAttribute="leading" id="Hpb-en-bUH"/>
+                                                <constraint firstItem="Bk1-be-7NF" firstAttribute="leading" secondItem="2My-xX-ILV" secondAttribute="trailing" constant="8" id="VkG-6E-TSt"/>
+                                                <constraint firstItem="Bk1-be-7NF" firstAttribute="top" secondItem="gM0-6I-lav" secondAttribute="top" id="j7G-bq-F0Y"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="typeField" destination="39G-2k-pwI" id="rjq-nQ-sJe"/>
+                                            <outlet property="valueField" destination="Qgk-Hi-WCt" id="jL1-b1-dnC"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -409,12 +500,12 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="hcr-M9-yoq">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="204-co-jCH">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="204-co-jCH">
                             <connections>
                                 <action selector="cancelButtonTapped:" destination="gOo-io-JSe" id="tPM-W3-Uyk"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="KnO-S4-snR">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="KnO-S4-snR">
                             <connections>
                                 <action selector="doneButtonTapped:" destination="gOo-io-JSe" id="y3r-b2-c8a"/>
                             </connections>
@@ -579,6 +670,46 @@
                                         <connections>
                                             <outlet property="blurbLabel" destination="KdX-h8-a2Z" id="nqU-bs-AaD"/>
                                             <outlet property="typeLabel" destination="GdJ-7O-gaJ" id="J0J-Cl-Z2V"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="emailCell" id="WVb-ev-9Vh" customClass="EmailTableViewCell" customModule="ESContacts" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="248" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WVb-ev-9Vh" id="dbP-l5-4qW">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RB8-it-jTs">
+                                                    <rect key="frame" x="15" y="11" width="345" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="w3j-mQ-Q2P"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVj-sy-EBF">
+                                                    <rect key="frame" x="15" y="36" width="345" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Icn-vA-dJ1"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="yVj-sy-EBF" firstAttribute="top" secondItem="RB8-it-jTs" secondAttribute="bottom" constant="4" id="4Lm-OL-GWA"/>
+                                                <constraint firstItem="yVj-sy-EBF" firstAttribute="leading" secondItem="dbP-l5-4qW" secondAttribute="leadingMargin" id="JDW-BR-PAb"/>
+                                                <constraint firstItem="RB8-it-jTs" firstAttribute="top" secondItem="dbP-l5-4qW" secondAttribute="topMargin" id="TnN-Xg-rfw"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="yVj-sy-EBF" secondAttribute="trailing" id="Xbd-Ec-dWl"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="RB8-it-jTs" secondAttribute="trailing" id="rMk-FD-uPP"/>
+                                                <constraint firstItem="RB8-it-jTs" firstAttribute="leading" secondItem="dbP-l5-4qW" secondAttribute="leadingMargin" id="uPB-m2-exd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="typeLabel" destination="RB8-it-jTs" id="5gq-nY-DyF"/>
+                                            <outlet property="valueLabel" destination="yVj-sy-EBF" id="a9L-GL-Mlf"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

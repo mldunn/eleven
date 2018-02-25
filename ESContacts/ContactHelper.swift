@@ -130,7 +130,7 @@ class ContactHelper {
                 count = items.count
             }
             catch let error as NSError {
-                print("Could not fetch. \(error), \(error.userInfo)")
+                Logger.error(error, message: "get totalItems")
             }
             return count
         }

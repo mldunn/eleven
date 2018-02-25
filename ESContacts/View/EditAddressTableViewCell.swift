@@ -16,8 +16,9 @@ class EditAddressTableViewCell: UITableViewCell {
     @IBOutlet weak var street2Field: ItemTextField!
     @IBOutlet weak var cityField: ItemTextField!
     @IBOutlet weak var stateField: ItemTextField!
-    @IBOutlet weak var zipField: BorderlessTextField!
+    @IBOutlet weak var zipField: ItemTextField!
     @IBOutlet weak var typeField: ItemTextField!
+    @IBOutlet weak var countryField: ItemTextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,27 +34,31 @@ class EditAddressTableViewCell: UITableViewCell {
         cityField.text = info.city
         street2Field.text = info.street2
         street1Field.text = info.street1
+        countryField.text = info.country
         address = info
     }
     
-    
-    @IBAction func stree1EndEditing(_ sender: Any) {
+    @IBAction func street1DidChange(_ sender: Any) {
         address?.street1 = street1Field.text
     }
-    @IBAction func street2EndEditing(_ sender: Any) {
-       address?.street2 =  street2Field.text
+    @IBAction func street2DidChange(_ sender: Any) {
+        address?.street2 = street2Field.text
     }
-    @IBAction func cityEndEditing(_ sender: Any) {
+    @IBAction func cityDidChange(_ sender: Any) {
         address?.city = cityField.text
     }
-    @IBAction func stateEndEditing(_ sender: Any) {
+    @IBAction func stateDidChange(_ sender: Any) {
         address?.state = stateField.text
     }
-    @IBAction func zipEndEditing(_ sender: Any) {
+    @IBAction func zipDidChange(_ sender: Any) {
         address?.zipcode = zipField.text
     }
-    @IBAction func typeEndEditing(_ sender: Any) {
-        address?.type = typeField.text
+    @IBAction func countryDidChange(_ sender: Any) {
+        address?.country = countryField.text
     }
+    
+    
+    
+  
     
 }

@@ -11,7 +11,8 @@ import UIKit
 class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var contact: ContactData?
-   
+    var sections = ["phone","email","address"]
+
     @IBOutlet weak var detailsTableView: UITableView!
     
     @IBOutlet weak var companyLabel: UILabel!
@@ -33,7 +34,6 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     }
     
-   
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "editContact" {
             if let nav = segue.destination as? UINavigationController {
@@ -62,8 +62,6 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
             contact = ContactHelper.getContact(id)
         }
         DispatchQueue.main.async {
-            
-          
             self.bindFields()
         }
     }
@@ -85,13 +83,17 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func getAddressInfo(_ index: Int) -> AddressData? {
         return contact?.getAddressByIndex(index)
     }
+    
+    func getEmailInfo(_ index: Int) -> EmailData? {
+        return contact?.getEmailByIndex(index)
+    }
 
 }
 
 extension DetailsViewController {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -102,6 +104,9 @@ extension DetailsViewController {
                 count = c.phoneItems?.count ?? 0
             }
             else if section == 1 {
+                count = c.emailItems?.count ?? 0
+            }
+            else if section == 2 {
                 count = c.addressItems?.count ?? 0
             }
         }
@@ -116,6 +121,12 @@ extension DetailsViewController {
             }
         }
         else if indexPath.section == 1 {
+            if let info = getEmailInfo(indexPath.row), let cell = tableView.dequeueReusableCell(withIdentifier: "emailCell") as? EmailTableViewCell {
+                cell.configureCell(info)
+                return cell
+            }
+        }
+        else if indexPath.section == 2 {
             if let info = getAddressInfo(indexPath.row), let cell = tableView.dequeueReusableCell(withIdentifier: "addressCell") as? AddressTableViewCell {
                 cell.configureCell(info)
                 return cell
@@ -125,10 +136,10 @@ extension DetailsViewController {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
+        if indexPath.section == 0 || indexPath.section == 1 {
             return 60
         }
-        else if indexPath.section == 1 {
+        else if indexPath.section == 2 {
             return 120
         }
         else {

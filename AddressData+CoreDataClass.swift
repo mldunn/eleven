@@ -53,17 +53,22 @@ public class AddressData: NSManagedObject {
                 lines.append(s2)
                 lines.append("\n")
             }
-            if let c = city {
+            if let c = city, !c.isEmpty {
                 lines.append(c)
                 lines.append(" ")
             }
-            if let s = state {
+            if let s = state, !s.isEmpty {
                 lines.append(s)
                 lines.append(" ")
             }
-            if let z = zipcode {
+            if let z = zipcode, !z.isEmpty {
                 lines.append(z)
-                lines.append(" ")
+            }
+            if let co = country, !co.isEmpty {
+                if !lines.isEmpty {
+                    lines.append("\n")
+                }
+                lines.append(co)
             }
             lines.append("\n\n")
             return lines
@@ -88,12 +93,12 @@ public class AddressData: NSManagedObject {
     }
     
     func dump() {
-        Logger.log("street1 [\(street1)]")
-        Logger.log("street2 [\(street2)]")
-        Logger.log("city [\(city)]")
-        Logger.log("state [\(state)]")
-        Logger.log("zipcode [\(zipcode)]")
-        Logger.log("type [\(type)]")
+        Logger.log("street1 [\(String(describing: street1))]")
+        Logger.log("street2 [\(String(describing: street2))]")
+        Logger.log("city [\(String(describing: city))]")
+        Logger.log("state [\(String(describing: state))]")
+        Logger.log("zipcode [\(String(describing: zipcode))]")
+        Logger.log("type [\(String(describing: type))]")
 
     }
 }

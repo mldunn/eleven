@@ -2,7 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="AddressData" representedClassName="AddressData" syncable="YES">
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" defaultValueString="United States" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="street1" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="street2" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,7 +18,12 @@
         <attribute name="sortIndex" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="sortName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="addressItems" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="AddressData" syncable="YES"/>
+        <relationship name="emailItems" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="EmailData" syncable="YES"/>
         <relationship name="phoneItems" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="PhoneData" syncable="YES"/>
+    </entity>
+    <entity name="EmailData" representedClassName="EmailData" syncable="YES">
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="PhoneData" representedClassName="PhoneData" syncable="YES">
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
@@ -26,7 +31,8 @@
     </entity>
     <elements>
         <element name="AddressData" positionX="-423" positionY="27" width="128" height="150"/>
-        <element name="ContactData" positionX="-281" positionY="-216" width="128" height="180"/>
+        <element name="ContactData" positionX="-281" positionY="-216" width="128" height="195"/>
         <element name="PhoneData" positionX="-38" positionY="78" width="128" height="75"/>
+        <element name="EmailData" positionX="-234" positionY="-63" width="128" height="75"/>
     </elements>
 </model>
