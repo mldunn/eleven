@@ -9,8 +9,12 @@
 import Foundation
 import UIKit
 
+//
+// global contants for fonts and colors
+//
+
 class Fonts {
-    static var AppFontName = "TrebuchetMS"
+    static var AppFontName = "HelveticaNeue"
     static var itemTextField = UIFont(name: AppFontName, size: 14.0)
     static var tableViewFooter = UIFont(name: AppFontName, size: 16.0)
     static var tableViewDetail = UIFont(name: AppFontName, size: 12.0)
@@ -26,6 +30,9 @@ class Colors {
     static var textField =  UIColor.darkText
 }
 
+//
+// simple array of letters for the index on the table view
+//
 
 let letterHeaders = [ "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","#"]
 
