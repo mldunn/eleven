@@ -13,10 +13,6 @@ class EditEmailTableViewCell: UITableViewCell {
     @IBOutlet weak var valueField: ItemTextField!
     @IBOutlet weak var typeField: ItemTextField!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     var email: EmailData?
     
     override func prepareForReuse() {
@@ -38,7 +34,4 @@ class EditEmailTableViewCell: UITableViewCell {
     @IBAction func valueFieldChanged(_ sender: Any) {
         email?.value = valueField.text
     }
-    
-   
-
 }

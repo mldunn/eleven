@@ -19,12 +19,7 @@ class EditAddressTableViewCell: UITableViewCell {
     @IBOutlet weak var zipField: ItemTextField!
     @IBOutlet weak var typeField: ItemTextField!
     @IBOutlet weak var countryField: ItemTextField!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
+        
     var address: AddressData?
     
     func configureCell(_ info: AddressData) {

@@ -12,12 +12,6 @@ class EmailTableViewCell: UITableViewCell {
 
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    
     
     func configureCell(_ info: EmailData) {
         typeLabel.text = info.type
