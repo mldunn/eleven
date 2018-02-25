@@ -21,9 +21,6 @@ class ContactsViewController: BaseViewController, UITableViewDelegate, UITableVi
         
         title = "Contacts"
         
-       
-        
-        
         itemTableView.register(UITableViewCell.self, forCellReuseIdentifier: "contactCell")
         itemTableView.register(UITableViewCell.self, forCellReuseIdentifier: "footerCell")
         
@@ -167,7 +164,6 @@ extension ContactsViewController {
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        
         return letterHeaders
     }
 }
