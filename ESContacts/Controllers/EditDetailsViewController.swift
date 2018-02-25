@@ -9,7 +9,12 @@
         import UIKit
         import CoreData
         
-        class EditDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,  ContactUpdateDelegate {
+        protocol DetailTypeDelegate {
+            func changeLabel(_ item: NSManagedObject?)
+        }
+        
+        class EditDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DetailTypeDelegate, ContactUpdateDelegate   {
+            
             
             enum DismissAction {
                 case save
@@ -22,9 +27,10 @@
             
             var existingContact: ContactData?
             var newContact: ContactData!
+            var changeLabelSection: String = ""
             
             var managedContext: NSManagedObjectContext?
-            var addDetailText = ["add photo", "add phone", "add email", "add address"]
+            var dataSections = ["info", "phone", "email", "address"]
             var rowHeights: [CGFloat] = [134, 44, 44, 200, 44]
             
             var isExistingContact: Bool {
@@ -54,6 +60,25 @@
                 detailsTableView.tableFooterView = UIView()
                 detailsTableView.setEditing(true, animated: false)
             }
+            
+            override func viewDidAppear(_ animated: Bool) {
+                if let section = dataSections.index(of: changeLabelSection)  {
+                    detailsTableView.reloadSections([section], with: .none)
+                    changeLabelSection = ""
+                }
+            }
+            
+            override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+                if segue.identifier == "changeLabel" {
+                    if let nav = segue.destination as? UINavigationController {
+                        if let vc = nav.viewControllers.first as? TypeLabelsTableViewController {
+                            vc.type = changeLabelSection
+                            vc.data = sender
+                        }
+                    }
+                }
+            }
+           
             
             func infoChanged() {
                 doneButton.isEnabled = newContact.isValid
@@ -168,6 +193,25 @@
         }
         
         extension EditDetailsViewController {
+            func changeLabel(_ item: NSManagedObject?) {
+                changeLabelSection = ""
+                if let _ = item as? PhoneData {
+                    changeLabelSection = "phone"
+                }
+                else if let _ = item as? EmailData {
+                    changeLabelSection = "email"
+                }
+                else if let _ = item as? AddressData {
+                    changeLabelSection = "address"
+                }
+            
+                performSegue(withIdentifier: "changeLabel", sender: item)
+            }
+            
+            
+        }
+        
+        extension EditDetailsViewController {
             
             func isDynamicSection(_ section: Int) -> Bool {
                 if section == 0 || (isExistingContact && (section == detailsTableView.numberOfSections - 1)) {
@@ -239,7 +283,7 @@
             }
             
             func numberOfSections(in tableView: UITableView) -> Int {
-                var count = addDetailText.count
+                var count = dataSections.count
                 
                 if isExistingContact {
                     count += 1
@@ -266,7 +310,7 @@
                 if isAddDetailsRow(indexPath: indexPath) {
                     
                     if let cell = tableView.dequeueReusableCell(withIdentifier: "addDetailCell") {
-                        cell.textLabel?.text = addDetailText[indexPath.section]
+                        cell.textLabel?.text = "add " + dataSections[indexPath.section]
                         cell.textLabel?.font = Fonts.tableViewDetail
                         return cell
                     }
@@ -284,6 +328,7 @@
                     
                     if let cell = tableView.dequeueReusableCell(withIdentifier: "editPhoneCell") as? EditPhoneTableViewCell {
                         cell.selectionStyle = .none
+                        cell.delegate = self
                         if let info = getPhoneInfo(indexPath.row) {
                             cell.configureCell(info)
                         }
@@ -294,6 +339,8 @@
                     
                     if let info = getEmailInfo(indexPath.row), let cell = tableView.dequeueReusableCell(withIdentifier: "editEmailCell") as? EditEmailTableViewCell {
                         cell.selectionStyle = .none
+                        cell.delegate = self
+                        
                         cell.configureCell(info)
                         return cell
                     }
@@ -302,6 +349,8 @@
                     
                     if let info = getAddressInfo(indexPath.row), let cell = tableView.dequeueReusableCell(withIdentifier: "editAddressCell") as? EditAddressTableViewCell {
                         cell.selectionStyle = .none
+                        cell.delegate = self
+                        
                         cell.configureCell(info)
                         return cell
                     }

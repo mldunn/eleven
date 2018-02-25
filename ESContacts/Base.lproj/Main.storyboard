@@ -106,28 +106,25 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBP-8S-Ec8" userLabel="TypeView">
                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="43.5"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FdZ-ew-t05" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NQa-Ii-3jg" customClass="LabelPickerButton" customModule="ESContacts" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="7" width="60" height="30"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="44" id="ZK5-zX-A4D"/>
+                                                                <constraint firstAttribute="height" constant="30" id="P1Z-Zr-4aA"/>
                                                             </constraints>
-                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="NO"/>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="NO"/>
-                                                            </userDefinedRuntimeAttributes>
+                                                            <inset key="imageEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                            <state key="normal" title="Type">
+                                                                <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
                                                             <connections>
-                                                                <action selector="typeFieldChanged:" destination="TMY-BN-4fU" eventType="editingChanged" id="rtt-e3-b5F"/>
+                                                                <action selector="typeButtonTapped:" destination="TMY-BN-4fU" eventType="touchUpInside" id="sYr-hC-6ib"/>
                                                             </connections>
-                                                        </textField>
+                                                        </button>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="0Jq-Ab-jZ6"/>
-                                                        <constraint firstItem="FdZ-ew-t05" firstAttribute="leading" secondItem="QBP-8S-Ec8" secondAttribute="leading" id="Zff-M9-ztQ"/>
-                                                        <constraint firstAttribute="trailing" secondItem="FdZ-ew-t05" secondAttribute="trailing" id="hZW-RV-hxm"/>
-                                                        <constraint firstItem="FdZ-ew-t05" firstAttribute="centerY" secondItem="QBP-8S-Ec8" secondAttribute="centerY" id="mkA-gM-I5b"/>
+                                                        <constraint firstAttribute="trailing" secondItem="NQa-Ii-3jg" secondAttribute="trailing" id="0Kl-xH-wYQ"/>
+                                                        <constraint firstItem="NQa-Ii-3jg" firstAttribute="leading" secondItem="QBP-8S-Ec8" secondAttribute="leading" id="aXf-na-mVu"/>
+                                                        <constraint firstItem="NQa-Ii-3jg" firstAttribute="centerY" secondItem="QBP-8S-Ec8" secondAttribute="centerY" id="nNy-9a-23c"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="taY-nt-FTt" userLabel="DataView">
@@ -171,7 +168,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="numberField" destination="wWz-Zw-gNn" id="mCF-CQ-Y36"/>
-                                            <outlet property="typeField" destination="FdZ-ew-t05" id="qFd-I9-sgG"/>
+                                            <outlet property="typeButton" destination="NQa-Ii-3jg" id="Ycp-1n-JQc"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="editAddressCell" rowHeight="200" id="oF5-OF-vUH" customClass="EditAddressTableViewCell" customModule="ESContacts" customModuleProvider="target">
@@ -184,25 +181,25 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wFR-eL-k1N" userLabel="TypeView">
                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="199.5"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tg1-QY-x78" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yr2-f7-wgf" customClass="LabelPickerButton" customModule="ESContacts" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="85" width="60" height="30"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="meb-Ev-8F8"/>
+                                                                <constraint firstAttribute="height" constant="30" id="aJX-jK-Z2M"/>
                                                             </constraints>
-                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="NO"/>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="NO"/>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </textField>
+                                                            <inset key="imageEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                            <state key="normal" title="Type">
+                                                                <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="typeButtonTapped:" destination="oF5-OF-vUH" eventType="touchUpInside" id="t9n-gQ-KgS"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="Tg1-QY-x78" secondAttribute="trailing" id="CrU-ar-RIO"/>
-                                                        <constraint firstItem="Tg1-QY-x78" firstAttribute="leading" secondItem="wFR-eL-k1N" secondAttribute="leading" id="F8V-rv-aAk"/>
-                                                        <constraint firstItem="Tg1-QY-x78" firstAttribute="centerY" secondItem="wFR-eL-k1N" secondAttribute="centerY" id="QYE-Jj-Cwc"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Yr2-f7-wgf" secondAttribute="trailing" id="BP4-CB-XQV"/>
+                                                        <constraint firstItem="Yr2-f7-wgf" firstAttribute="centerY" secondItem="wFR-eL-k1N" secondAttribute="centerY" id="Shf-SS-rjP"/>
                                                         <constraint firstAttribute="width" constant="60" id="TeD-ad-CDR"/>
+                                                        <constraint firstItem="Yr2-f7-wgf" firstAttribute="leading" secondItem="wFR-eL-k1N" secondAttribute="leading" id="pNQ-sg-V7d"/>
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DC0-N0-js5">
@@ -323,7 +320,7 @@
                                             <outlet property="stateField" destination="wAk-dc-zga" id="gSE-lg-3ET"/>
                                             <outlet property="street1Field" destination="JZC-gx-7CF" id="2Hn-cz-OUx"/>
                                             <outlet property="street2Field" destination="TPD-Kt-HMO" id="Z5o-d4-NYU"/>
-                                            <outlet property="typeField" destination="Tg1-QY-x78" id="KKb-VC-xs5"/>
+                                            <outlet property="typeButton" destination="Yr2-f7-wgf" id="c9e-1V-Dvq"/>
                                             <outlet property="zipField" destination="zv0-Ro-CjQ" id="BwO-jE-LKE"/>
                                         </connections>
                                     </tableViewCell>
@@ -418,28 +415,25 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2My-xX-ILV" userLabel="TypeView">
                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="43.5"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="39G-2k-pwI" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiD-wg-ui7" customClass="LabelPickerButton" customModule="ESContacts" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="6" width="60" height="30"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="44" id="TF1-UU-tjQ"/>
+                                                                <constraint firstAttribute="height" constant="30" id="vi3-ex-2XC"/>
                                                             </constraints>
-                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="NO"/>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="NO"/>
-                                                            </userDefinedRuntimeAttributes>
+                                                            <inset key="imageEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                            <state key="normal" title="Type">
+                                                                <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
                                                             <connections>
-                                                                <action selector="typeFieldChanged:" destination="z6H-3V-Etr" eventType="editingChanged" id="2r0-hj-UdQ"/>
+                                                                <action selector="typeButtonTapped:" destination="z6H-3V-Etr" eventType="touchUpInside" id="NLT-0Q-edc"/>
                                                             </connections>
-                                                        </textField>
+                                                        </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="39G-2k-pwI" firstAttribute="leading" secondItem="2My-xX-ILV" secondAttribute="leading" id="4D2-Se-wVf"/>
-                                                        <constraint firstAttribute="trailing" secondItem="39G-2k-pwI" secondAttribute="trailing" id="Vwq-aT-uiv"/>
-                                                        <constraint firstItem="39G-2k-pwI" firstAttribute="centerY" secondItem="2My-xX-ILV" secondAttribute="centerY" id="bc7-d3-4J6"/>
+                                                        <constraint firstItem="FiD-wg-ui7" firstAttribute="centerY" secondItem="2My-xX-ILV" secondAttribute="centerY" id="Fxa-8a-Jlz"/>
                                                         <constraint firstAttribute="width" constant="60" id="d3D-OH-kgy"/>
+                                                        <constraint firstAttribute="trailing" secondItem="FiD-wg-ui7" secondAttribute="trailing" id="qFg-Jk-RMA"/>
+                                                        <constraint firstItem="FiD-wg-ui7" firstAttribute="leading" secondItem="2My-xX-ILV" secondAttribute="leading" id="qnj-xn-t7J"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bk1-be-7NF" userLabel="DataView">
@@ -458,7 +452,7 @@
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="YES"/>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
-                                                                <action selector="valueFieldChanged:" destination="z6H-3V-Etr" eventType="editingChanged" id="3OU-ts-OSP"/>
+                                                                <action selector="valueFieldChanged:" destination="z6H-3V-Etr" eventType="editingChanged" id="Tcu-en-vlH"/>
                                                             </connections>
                                                         </textField>
                                                     </subviews>
@@ -482,7 +476,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="typeField" destination="39G-2k-pwI" id="rjq-nQ-sJe"/>
+                                            <outlet property="typeButton" destination="FiD-wg-ui7" id="Das-YC-OxA"/>
                                             <outlet property="valueField" destination="Qgk-Hi-WCt" id="jL1-b1-dnC"/>
                                         </connections>
                                     </tableViewCell>
@@ -515,11 +509,48 @@
                     <connections>
                         <outlet property="detailsTableView" destination="lfO-fQ-1m0" id="vNc-xg-5G2"/>
                         <outlet property="doneButton" destination="KnO-S4-snR" id="tAK-vx-nOF"/>
+                        <segue destination="1lu-5x-wor" kind="presentation" identifier="changeLabel" id="U4U-HC-xLd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Krq-5A-8oj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-815.20000000000005" y="895.50224887556226"/>
+        </scene>
+        <!--Type Labels Table View Controller-->
+        <scene sceneID="z4i-Mb-o6Z">
+            <objects>
+                <tableViewController id="b3V-rE-27D" customClass="TypeLabelsTableViewController" customModule="ESContacts" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ybp-jV-ysl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="labelCell" id="82z-Uu-XNk">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="82z-Uu-XNk" id="NDR-l6-7Zv">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="b3V-rE-27D" id="Ug7-XI-bMC"/>
+                            <outlet property="delegate" destination="b3V-rE-27D" id="kpH-i4-dLO"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="plO-Zt-YeV">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Nmg-Mx-PrW">
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="b3V-rE-27D" id="qIi-Tr-22E"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="plain" systemItem="done" id="LTK-Yu-NvW"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GVl-FU-f78" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1548" y="895.50224887556226"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="N45-Gc-aFO">
@@ -542,7 +573,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.3411764705882353" green="0.50980392156862742" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="5bP-uw-r0k" secondAttribute="trailing" constant="20" id="0vn-wa-EXP"/>
                                             <constraint firstAttribute="width" constant="80" id="YjV-6b-cR5"/>
@@ -784,6 +815,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="otf-Yo-97N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1626" y="897"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZrV-hV-zPu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1lu-5x-wor" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wAE-ed-i1P">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="b3V-rE-27D" kind="relationship" relationship="rootViewController" id="reh-rR-T0D"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yh0-Go-PEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="362" y="896"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

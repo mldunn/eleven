@@ -12,18 +12,19 @@ import UIKit
 class EditAddressTableViewCell: UITableViewCell {
 
     
+    @IBOutlet weak var typeButton: LabelPickerButton!
     @IBOutlet weak var street1Field: ItemTextField!
     @IBOutlet weak var street2Field: ItemTextField!
     @IBOutlet weak var cityField: ItemTextField!
     @IBOutlet weak var stateField: ItemTextField!
     @IBOutlet weak var zipField: ItemTextField!
-    @IBOutlet weak var typeField: ItemTextField!
     @IBOutlet weak var countryField: ItemTextField!
         
     var address: AddressData?
+    var delegate: DetailTypeDelegate?
     
     func configureCell(_ info: AddressData) {
-        typeField.text = info.type
+        typeButton.setTitle(info.type, for: .normal)
         zipField.text = info.zipcode
         stateField.text = info.state
         cityField.text = info.city
@@ -58,4 +59,7 @@ class EditAddressTableViewCell: UITableViewCell {
         address?.zipcode = zipField.text
     }
     
+    @IBAction func typeButtonTapped(_ sender: Any) {
+         delegate?.changeLabel(address)
+    }
 }

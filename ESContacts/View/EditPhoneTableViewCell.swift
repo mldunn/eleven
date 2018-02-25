@@ -7,35 +7,38 @@
 //
 
 import UIKit
+import CoreData
+
 
 
 class EditPhoneTableViewCell: UITableViewCell {
+    @IBOutlet weak var typeButton: LabelPickerButton!
     
     @IBOutlet weak var numberField: ItemTextField!
-    @IBOutlet weak var typeField: ItemTextField!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
     var phone: PhoneData?
-    
+    var delegate: DetailTypeDelegate?
     override func prepareForReuse() {
-        typeField.text = ""
+        typeButton.setTitle("", for: .normal)
         numberField.text = ""
         phone = nil
     }
     
     func configureCell(_ info: PhoneData) {
-        typeField.text = info.type
         numberField.text = info.value
+        typeButton.setTitle(info.type, for: .normal)
         phone = info
     }
    
-    @IBAction func typeFieldChanged(_ sender: Any) {
-        phone?.type = typeField.text
-    }
+    
     @IBAction func numberFieldChanged(_ sender: Any) {
         phone?.value = numberField.text
+    }
+    @IBAction func typeButtonTapped(_ sender: Any) {
+        delegate?.changeLabel(phone)
     }
     
    

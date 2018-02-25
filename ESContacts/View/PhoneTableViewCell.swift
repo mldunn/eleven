@@ -13,6 +13,11 @@ class PhoneTableViewCell: UITableViewCell {
     @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        valueLabel.textColor = Colors.customBlue
+    }
+    
     func configureCell(_ info: PhoneData) {
         typeLabel.text = info.type
         valueLabel.text = info.formatted

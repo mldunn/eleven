@@ -24,7 +24,7 @@ public class PhoneData: NSManagedObject {
     
     func parse(data: NSDictionary) {
         value = data["value"] as? String ?? ""
-        type = data["type"] as? String ?? ""
+        type = data["type"] as? String ?? TypeLabels.defaultLabel(forType: "phone")
    }
     
     var formatted: String {
