@@ -30,6 +30,7 @@ class Colors {
 }
 
 
+let letterHeaders = [ "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","#"]
 
 let SAVE_NOTIFICATION = "ContactSaved"
 let DELETE_NOTIFICATION = "ContactDelete"

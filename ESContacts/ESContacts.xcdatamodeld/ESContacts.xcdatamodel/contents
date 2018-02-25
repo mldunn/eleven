@@ -6,7 +6,7 @@
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="street1" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="street2" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" defaultValueString="home" syncable="YES"/>
         <attribute name="zipcode" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="ContactData" representedClassName="ContactData" syncable="YES">
@@ -22,17 +22,17 @@
         <relationship name="phoneItems" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="PhoneData" syncable="YES"/>
     </entity>
     <entity name="EmailData" representedClassName="EmailData" syncable="YES">
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" defaultValueString="home" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="PhoneData" representedClassName="PhoneData" syncable="YES">
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" defaultValueString="home" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="AddressData" positionX="-423" positionY="27" width="128" height="150"/>
         <element name="ContactData" positionX="-281" positionY="-216" width="128" height="195"/>
-        <element name="PhoneData" positionX="-38" positionY="78" width="128" height="75"/>
         <element name="EmailData" positionX="-234" positionY="-63" width="128" height="75"/>
+        <element name="PhoneData" positionX="-38" positionY="78" width="128" height="75"/>
     </elements>
 </model>

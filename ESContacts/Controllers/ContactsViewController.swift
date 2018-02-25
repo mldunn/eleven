@@ -165,7 +165,8 @@ extension ContactsViewController {
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return sectionHeaders
+        
+        return letterHeaders
     }
 }
 

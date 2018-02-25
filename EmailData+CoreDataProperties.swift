@@ -2,7 +2,7 @@
 //  EmailData+CoreDataProperties.swift
 //  ESContacts
 //
-//  Created by michael dunn on 2/24/18.
+//  Created by michael dunn on 2/25/18.
 //  Copyright © 2018 michael dunn. All rights reserved.
 //
 //
