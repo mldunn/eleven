@@ -47,7 +47,5 @@ class EditInfoTableViewCell: UITableViewCell {
         contact?.company = companyField.text
         delegate?.infoChanged()
     }
-    
-    
 
 }

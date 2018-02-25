@@ -11,7 +11,6 @@ import UIKit
 
 class EditAddressTableViewCell: UITableViewCell {
 
-    
     @IBOutlet weak var typeButton: LabelPickerButton!
     @IBOutlet weak var street1Field: ItemTextField!
     @IBOutlet weak var street2Field: ItemTextField!

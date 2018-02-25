@@ -31,7 +31,7 @@ extension UILabel {
             let maText = NSMutableAttributedString(string: caption)
             var attrs: [NSAttributedStringKey: Any] = [:]
             if bold {
-                attrs[NSAttributedStringKey.font] = UIFont.boldSystemFont(ofSize: font.pointSize)
+                attrs[NSAttributedStringKey.font] = Fonts.tableViewItemBold 
             }
             if let clr = color {
                 attrs[NSAttributedStringKey.foregroundColor] = clr

@@ -13,15 +13,6 @@ import CoreData
 @objc(AddressData)
 public class AddressData: NSManagedObject {
 
-    enum AddressField {
-        case street1
-        case street2
-        case city
-        case state
-        case zip
-        case type
-    }
-    
     var isValid: Bool {
         get {
             return Util.isNonEmptyFieldValue(street1)
@@ -29,7 +20,6 @@ public class AddressData: NSManagedObject {
                     || Util.isNonEmptyFieldValue(city)
                     || Util.isNonEmptyFieldValue(state)
                     || Util.isNonEmptyFieldValue(zipcode)
-                  //  || Util.isNonEmptyFieldValue(country)
         }
     }
     
@@ -39,7 +29,7 @@ public class AddressData: NSManagedObject {
         city = data["city"] as? String ?? ""
         state = data["state"] as? String ?? ""
         zipcode = data["zipcode"] as? String ?? ""
-        type = data["type"] as? String ?? "home"
+        type = data["type"] as? String ?? TypeLabels.defaultLabel(forType: "address")
     }
     
     var blurb: String {
@@ -53,21 +43,23 @@ public class AddressData: NSManagedObject {
                 lines.append(s2)
                 lines.append("\n")
             }
+            var citystatezip = ""
             if let c = city, !c.isEmpty {
-                lines.append(c)
-                lines.append(" ")
+                citystatezip.append(c)
+                citystatezip.append(" ")
             }
             if let s = state, !s.isEmpty {
-                lines.append(s)
-                lines.append(" ")
+                citystatezip.append(s)
+                citystatezip.append(" ")
             }
             if let z = zipcode, !z.isEmpty {
-                lines.append(z)
+                citystatezip.append(z)
+            }
+            if !citystatezip.isEmpty {
+                lines.append(citystatezip)
+                lines.append("\n")
             }
             if let co = country, !co.isEmpty {
-                if !lines.isEmpty {
-                    lines.append("\n")
-                }
                 lines.append(co)
             }
             lines.append("\n\n")
@@ -75,22 +67,6 @@ public class AddressData: NSManagedObject {
         }
     }
     
-    func updateField(_ field: AddressField, value: String) {
-        switch (field) {
-        case .street1:
-            street1 = value
-        case .street2:
-            street2 = value
-        case .city:
-            city = value
-        case .state:
-            state = value
-        case .zip:
-            zipcode = value
-        case .type:
-            type = value
-        }
-    }
     
     func dump() {
         Logger.log("street1 [\(String(describing: street1))]")

@@ -38,7 +38,7 @@ class TypeLabels {
             return address.first!
         }
     }
-
+    
     static func values(forType: String) -> [String] {
         if let labels = labels[forType] {
             return labels

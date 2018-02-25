@@ -73,7 +73,7 @@ class TypeLabelsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "labelCell", for: indexPath)
 
         cell.textLabel?.text = labels[indexPath.row]
-        
+        cell.textLabel?.font = Fonts.tableViewItem
         if indexPath.row == selectedIndex {
             cell.accessoryType = .checkmark
         }

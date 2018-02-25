@@ -144,6 +144,9 @@
                                                  handler: nil)
                 alert.addAction(deleteAction)
                 alert.addAction(cancelAction)
+                
+                
+                alert.view.tintColor = Colors.customBlue
                 present(alert, animated: true, completion: nil)
             }
             

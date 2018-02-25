@@ -67,6 +67,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if let c = contact {
             initialLabel.text = c.initials
+            initialLabel.sizeToFit()
             displayName.text = c.displayName
             companyLabel.text = c.company
             detailsTableView.reloadData()

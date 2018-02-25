@@ -143,6 +143,7 @@ extension ContactsViewController {
         if indexPath.section == sectionHeaders.count {
             let cell = tableView.dequeueReusableCell(withIdentifier: "footerCell", for: indexPath)
             cell.textLabel?.text = getItemCountDisplay()
+            cell.textLabel?.font = Fonts.tableViewItem
             cell.textLabel?.textAlignment = .center
             cell.selectionStyle = .none
             return cell
@@ -150,6 +151,7 @@ extension ContactsViewController {
         else if let item = getItem(indexPath) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath)
             cell.textLabel?.text = item.displayName
+            cell.textLabel?.font = Fonts.tableViewItem
             cell.textLabel?.highlightAtIndex(index: Int(item.sortIndex), bold: true, color: nil)
             cell.selectionStyle = .none
             return cell
@@ -165,6 +167,12 @@ extension ContactsViewController {
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return letterHeaders
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.textLabel?.font = Fonts.tableViewItemBold
+        header.textLabel?.frame = header.frame
     }
 }
 

@@ -8,6 +8,9 @@
 
 import UIKit
 
+//
+
+
 @IBDesignable
 class ItemTextField: UITextField {
     
@@ -33,15 +36,14 @@ class ItemTextField: UITextField {
             }
         }
     }
-
+    
     func createLeftBorder() {
         let border = CALayer()
         border.backgroundColor = UIColor.lightGray.cgColor
         border.frame = CGRect(x: 0, y: 0, width: 0.5, height: frame.height)
         layer.addSublayer(border)
-
+        
     }
-    
     
     func createBottomBorder() {
         
@@ -50,7 +52,7 @@ class ItemTextField: UITextField {
         border.backgroundColor = UIColor.lightGray.cgColor
         border.frame = CGRect(x: 0, y: y, width: frame.width, height: 0.5)
         layer.addSublayer(border)
-
+        
     }
     
     override init(frame: CGRect) {
@@ -70,8 +72,6 @@ class ItemTextField: UITextField {
             createBottomBorder()
         }
     }
-   
-  
     
     // placeholder position
     override func textRect(forBounds bounds: CGRect) -> CGRect {
@@ -84,5 +84,4 @@ class ItemTextField: UITextField {
         let inset = super.textRect(forBounds: bounds)
         return inset.insetBy(dx: insetX, dy: 0)
     }
-
 }

@@ -21,6 +21,7 @@ class EditPhoneTableViewCell: UITableViewCell {
     
     var phone: PhoneData?
     var delegate: DetailTypeDelegate?
+    
     override func prepareForReuse() {
         typeButton.setTitle("", for: .normal)
         numberField.text = ""
@@ -43,6 +44,4 @@ class EditPhoneTableViewCell: UITableViewCell {
     @IBAction func typeButtonTapped(_ sender: Any) {
         delegate?.changeLabel(phone)
     }
-    
-   
 }

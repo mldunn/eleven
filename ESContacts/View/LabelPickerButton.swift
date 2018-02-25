@@ -12,8 +12,10 @@ class LabelPickerButton: UIButton {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    
+       
+        //
+        // set font and offset
+        //
         titleLabel?.font = Fonts.tableViewDetail
         titleLabel?.textAlignment = .left
         contentHorizontalAlignment = .left
@@ -21,5 +23,4 @@ class LabelPickerButton: UIButton {
         setTitleColor(Colors.customBlue, for: .normal)
     }
     
-  
 }

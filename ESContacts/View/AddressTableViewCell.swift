@@ -12,12 +12,7 @@ class AddressTableViewCell: UITableViewCell {
 
     @IBOutlet weak var blurbLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-   
+    
     func configureCell(_ info: AddressData) {
         typeLabel.text = info.type
         blurbLabel.text = info.blurb

@@ -64,10 +64,10 @@ class ContactHelper {
             }
         }
         catch let error as NSError {
-           Logger.error(error, message: "import JSON")
+            Logger.error(error, message: "import JSON")
         }
     }
-   
+    
     
     static func deleteContact(_ contact: ContactData) {
         guard let appDelegate =
