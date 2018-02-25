@@ -19,6 +19,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var displayName: UILabel!
     @IBOutlet weak var circleView: UIView!
     @IBOutlet weak var initialLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         circleView.layer.cornerRadius = circleView.bounds.width / 2

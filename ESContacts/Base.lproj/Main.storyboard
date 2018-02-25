@@ -218,7 +218,7 @@
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="YES"/>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
-                                                                <action selector="street1DidChange:" destination="oF5-OF-vUH" eventType="editingChanged" id="W8P-dQ-WjC"/>
+                                                                <action selector="street1Changed:" destination="oF5-OF-vUH" eventType="editingChanged" id="fUb-T0-dj8"/>
                                                             </connections>
                                                         </textField>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Street Address 2" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="TPD-Kt-HMO" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
@@ -231,7 +231,7 @@
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="YES"/>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
-                                                                <action selector="street2DidChange:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="mPa-Zl-KrO"/>
+                                                                <action selector="street2Changed:" destination="oF5-OF-vUH" eventType="editingChanged" id="5Ow-CK-XcO"/>
                                                             </connections>
                                                         </textField>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="V1z-YI-Cvi" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
@@ -244,7 +244,7 @@
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="YES"/>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
-                                                                <action selector="cityDidChange:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="xge-XD-NjK"/>
+                                                                <action selector="cityChanged:" destination="oF5-OF-vUH" eventType="editingChanged" id="Xgk-Ww-007"/>
                                                             </connections>
                                                         </textField>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iCC-B1-abd" userLabel="StateZipView">
@@ -260,7 +260,7 @@
                                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="YES"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                     <connections>
-                                                                        <action selector="stateDidChange:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="ERv-ks-Mbh"/>
+                                                                        <action selector="stateChanged:" destination="oF5-OF-vUH" eventType="editingChanged" id="NIY-X5-1aK"/>
                                                                     </connections>
                                                                 </textField>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zv0-Ro-CjQ" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
@@ -273,7 +273,7 @@
                                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="YES"/>
                                                                     </userDefinedRuntimeAttributes>
                                                                     <connections>
-                                                                        <action selector="zipDidChange:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="cL5-C9-dD5"/>
+                                                                        <action selector="zipChanged:" destination="oF5-OF-vUH" eventType="editingChanged" id="30k-JE-YKe"/>
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
@@ -282,7 +282,7 @@
                                                                 <constraint firstItem="zv0-Ro-CjQ" firstAttribute="width" secondItem="wAk-dc-zga" secondAttribute="width" id="6Ri-sn-Ym3"/>
                                                             </constraints>
                                                         </stackView>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Country" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kl1-aP-62Z" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Country" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kl1-aP-62Z" customClass="ItemTextField" customModule="ESContacts" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="160" width="307" height="39.5"/>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -292,7 +292,7 @@
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="NO"/>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
-                                                                <action selector="countryDidChange:" destination="oF5-OF-vUH" eventType="editingDidEnd" id="t5p-KL-7bp"/>
+                                                                <action selector="countryChanged:" destination="oF5-OF-vUH" eventType="editingChanged" id="fGy-mM-8FT"/>
                                                             </connections>
                                                         </textField>
                                                     </subviews>

@@ -14,16 +14,14 @@ class Fonts {
     static var AppBoldFontName = AppFontName + "-Bold"
     static var AppLightFontName = AppFontName + "-Light"
     static var itemTextField = UIFont(name: AppFontName, size: 14.0)
-    static var TableViewFont = UIFont(name: AppFontName, size: 14.0)
-    static var TableViewDetailFont = UIFont(name: AppFontName, size: 12.0)
-    static var TableViewBoldFont = UIFont(name: AppBoldFontName, size: 14.0)
-    static var HeaderButtonFont = UIFont(name: AppFontName, size: 12.0)
-    static var FooterButtonFont = UIFont(name: AppFontName, size: 14.0)
+    static var tableViewFooter = UIFont(name: AppFontName, size: 16.0)
+    static var tableViewDetail = UIFont(name: AppFontName, size: 14.0)
+    static var tableViewBold = UIFont(name: AppBoldFontName, size: 14.0)
 }
 
 class Colors {
-    static var sysBlue =  UIColor(red: 18.0/255.0, green: 149.0/255.0, blue: 1, alpha: 1)
-    static var bottomBorder =  UIColor(red: 230/255.0, green: 230.0/255.0, blue: 230.0/255.0, alpha: 0.8)
+    static var sysBlue = UIColor(red: 18.0/255.0, green: 149.0/255.0, blue: 1, alpha: 1)
+    static var navBar = UIColor(red: 235/255.0, green: 235.0/255.0, blue: 235.0/255.0, alpha: 1.0)
      static var textField =  UIColor.darkText
 }
 

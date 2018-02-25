@@ -20,6 +20,7 @@ class ContactsViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         
         title = "Contacts"
+        navigationController?.navigationBar.backgroundColor = Colors.navBar
         
         itemTableView.register(UITableViewCell.self, forCellReuseIdentifier: "contactCell")
         itemTableView.register(UITableViewCell.self, forCellReuseIdentifier: "footerCell")

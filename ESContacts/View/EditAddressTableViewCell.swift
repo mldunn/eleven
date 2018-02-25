@@ -38,27 +38,29 @@ class EditAddressTableViewCell: UITableViewCell {
         address = info
     }
     
-    @IBAction func street1DidChange(_ sender: Any) {
+   
+    @IBAction func street1Changed(_ sender: Any) {
         address?.street1 = street1Field.text
     }
-    @IBAction func street2DidChange(_ sender: Any) {
+    
+    @IBAction func street2Changed(_ sender: Any) {
         address?.street2 = street2Field.text
     }
-    @IBAction func cityDidChange(_ sender: Any) {
+    
+    @IBAction func cityChanged(_ sender: Any) {
         address?.city = cityField.text
     }
-    @IBAction func stateDidChange(_ sender: Any) {
-        address?.state = stateField.text
-    }
-    @IBAction func zipDidChange(_ sender: Any) {
-        address?.zipcode = zipField.text
-    }
-    @IBAction func countryDidChange(_ sender: Any) {
+    
+    @IBAction func countryChanged(_ sender: Any) {
         address?.country = countryField.text
     }
     
+    @IBAction func stateChanged(_ sender: Any) {
+        address?.state = stateField.text
+    }
     
-    
-  
+    @IBAction func zipChanged(_ sender: Any) {
+        address?.zipcode = zipField.text
+    }
     
 }

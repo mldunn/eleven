@@ -144,8 +144,8 @@
 				D596350F203B645300E0D6BB /* Assets.xcassets */,
 				D5963511203B645300E0D6BB /* LaunchScreen.storyboard */,
 				D5963514203B645300E0D6BB /* Info.plist */,
-				D596350C203B645300E0D6BB /* ESContacts.xcdatamodeld */,
 				D513EF04203D00820050A650 /* ContactHelper.swift */,
+				D596350C203B645300E0D6BB /* ESContacts.xcdatamodeld */,
 			);
 			path = ESContacts;
 			sourceTree = "<group>";

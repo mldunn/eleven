@@ -42,7 +42,11 @@
                 else {
                     title = "New Contact"
                     newContact = ContactData()
+                    detailsTableView.becomeFirstResponder()
                 }
+                
+                navigationController?.navigationBar.backgroundColor = Colors.navBar
+                
                 infoChanged()
                 
                 detailsTableView.dataSource = self
@@ -68,9 +72,7 @@
                         else {
                             var notification: String!
                             if action == .save {
-                                newContact.dump()
                                 newContact.sanitize()
-                                newContact.dump()
                                 notification = SAVE_NOTIFICATION
                             }
                             else if action == .delete {
@@ -101,7 +103,6 @@
             @IBAction func cancelButtonTapped(_ sender: Any) {
                 dismissVC(.cancel)
             }
-            
             
             @objc func deleteContact() {
                 
@@ -146,8 +147,8 @@
                         rowIndex = newContact.addAddress() - 1
                     }
                     let indexPath = IndexPath(row: rowIndex, section: section)
-                    detailsTableView.insertRows(at: [indexPath], with: .bottom)
-                    detailsTableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+                    detailsTableView.insertRows(at: [indexPath], with: .top)
+                    detailsTableView.scrollToRow(at: indexPath, at: .top, animated: true)
                 }
             }
             
@@ -166,9 +167,8 @@
             }
         }
         
-        
         extension EditDetailsViewController {
-        
+            
             func isDynamicSection(_ section: Int) -> Bool {
                 if section == 0 || (isExistingContact && (section == detailsTableView.numberOfSections - 1)) {
                     return false
@@ -264,13 +264,15 @@
             func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                 
                 if isAddDetailsRow(indexPath: indexPath) {
-                   if let cell = tableView.dequeueReusableCell(withIdentifier: "addDetailCell") {
+                    
+                    if let cell = tableView.dequeueReusableCell(withIdentifier: "addDetailCell") {
                         cell.textLabel?.text = addDetailText[indexPath.section]
-                        cell.textLabel?.font = Fonts.TableViewDetailFont
+                        cell.textLabel?.font = Fonts.tableViewDetail
                         return cell
                     }
                 }
                 else if indexPath.section == 0 {
+                    
                     if let cell = tableView.dequeueReusableCell(withIdentifier: "editInfoCell") as? EditInfoTableViewCell {
                         cell.delegate = self
                         cell.selectionStyle = .none
@@ -279,6 +281,7 @@
                     }
                 }
                 else if indexPath.section == 1 {
+                    
                     if let cell = tableView.dequeueReusableCell(withIdentifier: "editPhoneCell") as? EditPhoneTableViewCell {
                         cell.selectionStyle = .none
                         if let info = getPhoneInfo(indexPath.row) {
@@ -306,11 +309,16 @@
                 else if let cell = tableView.dequeueReusableCell(withIdentifier: "deleteContactCell") {
                     
                     let button = UIButton(frame: cell.frame)
-                    button.titleLabel?.font = Fonts.FooterButtonFont
+                    button.contentEdgeInsets.left = 60
+                    button.titleLabel?.font = Fonts.tableViewFooter
                     button.setTitle("Delete Contact", for: .normal)
                     button.setTitleColor(UIColor.red, for: .normal)
+                    
                     button.addTarget(self, action: #selector(deleteContact), for: .touchUpInside)
+                    button.titleLabel?.numberOfLines = 1
+                    button.contentHorizontalAlignment = .left
                     cell.contentView.addSubview(button)
+                    
                     return cell
                 }
                 return UITableViewCell()

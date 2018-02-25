@@ -38,6 +38,9 @@ class EditInfoTableViewCell: UITableViewCell {
         lastNameField.text = info.lastName
         companyField.text = info.company
         contact = info
+        if contact?.isValid == false {
+            firstNameField.becomeFirstResponder()
+        }
     }
     
     @IBAction func firstNameChanged(_ sender: Any) {
