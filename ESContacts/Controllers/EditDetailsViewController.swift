@@ -13,7 +13,7 @@
             func changeLabel(_ item: NSManagedObject?)
         }
         
-        class EditDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DetailTypeDelegate, ContactUpdateDelegate   {
+        class EditDetailsViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, DetailTypeDelegate, ContactUpdateDelegate   {
             
             
             enum DismissAction {

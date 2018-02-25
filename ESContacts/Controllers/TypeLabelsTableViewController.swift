@@ -20,6 +20,13 @@ class TypeLabelsTableViewController: UITableViewController {
         super.viewDidLoad()
         title = "Label"
         
+        if let navigationBar = navigationController?.navigationBar {
+            
+            navigationBar.tintColor = Colors.customBlue
+            navigationBar.barTintColor = Colors.navBar
+            
+        }
+        
         labels = TypeLabels.values(forType: type)
         
         if let data = data as? NSManagedObject {

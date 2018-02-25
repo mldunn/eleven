@@ -22,6 +22,7 @@
 		D57B77FA204282980058B399 /* TypeLabelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57B77F9204282980058B399 /* TypeLabelsTableViewController.swift */; };
 		D57B77FC2042E6930058B399 /* LabelPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57B77FB2042E6930058B399 /* LabelPickerButton.swift */; };
 		D57B77FE2042EE8F0058B399 /* TypeLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57B77FD2042EE8F0058B399 /* TypeLabels.swift */; };
+		D57B7801204325E60058B399 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57B7800204325E60058B399 /* BaseViewController.swift */; };
 		D5963506203B645300E0D6BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5963505203B645300E0D6BB /* AppDelegate.swift */; };
 		D596350B203B645300E0D6BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5963509203B645300E0D6BB /* Main.storyboard */; };
 		D596350E203B645300E0D6BB /* ESContacts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D596350C203B645300E0D6BB /* ESContacts.xcdatamodeld */; };
@@ -69,6 +70,7 @@
 		D57B77F9204282980058B399 /* TypeLabelsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeLabelsTableViewController.swift; sourceTree = "<group>"; };
 		D57B77FB2042E6930058B399 /* LabelPickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelPickerButton.swift; sourceTree = "<group>"; };
 		D57B77FD2042EE8F0058B399 /* TypeLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeLabels.swift; sourceTree = "<group>"; };
+		D57B7800204325E60058B399 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D5963502203B645300E0D6BB /* ESContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5963505203B645300E0D6BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D596350A203B645300E0D6BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				D596353D203B9A2200E0D6BB /* DetailsViewController.swift */,
 				D596353F203BA34000E0D6BB /* EditDetailsViewController.swift */,
 				D57B77F9204282980058B399 /* TypeLabelsTableViewController.swift */,
+				D57B7800204325E60058B399 /* BaseViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				D52E125C204240E500CC97EB /* EmailData+CoreDataClass.swift in Sources */,
 				D596350E203B645300E0D6BB /* ESContacts.xcdatamodeld in Sources */,
 				D513EF1A203D8EA10050A650 /* ContactData+CoreDataClass.swift in Sources */,
+				D57B7801204325E60058B399 /* BaseViewController.swift in Sources */,
 				D5963545203BB42000E0D6BB /* ItemTextField.swift in Sources */,
 				D513EF1D203D8EA10050A650 /* AddressData+CoreDataProperties.swift in Sources */,
 				D596354D203BEF5700E0D6BB /* EditAddressTableViewCell.swift in Sources */,

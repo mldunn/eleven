@@ -16,9 +16,9 @@ import Foundation
 //
 
 class TypeLabels {
-    static let phone = ["home", "work", "mobile", "iPhone", "main", "home fax", "work fax", "pager"]
-    static let email =  ["home", "work", "iCloud", "other"]
-    static let address = ["home", "work", "other"]
+    static let phone = ["home", "work", "mobile", "iPhone", "main", "school", "home fax", "work fax", "pager"]
+    static let email =  ["home", "work", "iCloud", "school:","other"]
+    static let address = ["home", "work", "school", "vaction", "other"]
     
     
     static let sections = ["info", "phone","email","address"]
