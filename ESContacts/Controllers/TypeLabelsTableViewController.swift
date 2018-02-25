@@ -9,6 +9,10 @@
 import UIKit
 import CoreData
 
+//
+// Using a UITableViewController here because there is not much else going on in this view
+//
+
 class TypeLabelsTableViewController: UITableViewController {
     
     var selectedIndex = -1
@@ -27,6 +31,9 @@ class TypeLabelsTableViewController: UITableViewController {
             
         }
         
+        //
+        // get the array of labels
+        //
         labels = TypeLabels.values(forType: type)
         
         if let data = data as? NSManagedObject {
@@ -35,13 +42,26 @@ class TypeLabelsTableViewController: UITableViewController {
                 selectedIndex = labels.index(of: label) ?? -1
             }
         }
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "labelCell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "labelCell")
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    //
+    // the view controller gets dismissed if a cell is selected or if Cancel is tapped
+    //
+    
+    func dismissVC(_ selected: Int) {
+        if selected >= 0 && selected < labels.count {
+            let value = labels[selected]
+            if let item = data as? NSManagedObject {
+                item.setValue(value, forKey: "type")
+            }
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        dismissVC(-1)
     }
 
     // MARK: - Table view data source
@@ -49,13 +69,15 @@ class TypeLabelsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.row != selectedIndex {
+            //
+            // change the checkmark accesssory (though we dismiss right away so really not necessary)
+            //
             if let prev = tableView.cellForRow(at: IndexPath(row: selectedIndex, section: indexPath.section)) {
                 prev.accessoryType = .none
             }
             if let sel = tableView.cellForRow(at: indexPath) {
                 sel.accessoryType = .checkmark
                 dismissVC(indexPath.row)
-                
             }
         }
     }
@@ -68,7 +90,6 @@ class TypeLabelsTableViewController: UITableViewController {
         return labels.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "labelCell", for: indexPath)
 
@@ -87,19 +108,4 @@ class TypeLabelsTableViewController: UITableViewController {
         return false
     }
     
-    
-    func dismissVC(_ selected: Int) {
-        if selected >= 0 && selected < labels.count {
-            let value = labels[selected]
-            if let item = data as? NSManagedObject {
-                item.setValue(value, forKey: "type")
-            }
-        }
-        dismiss(animated: true, completion: nil)
-    }
-
-    @IBAction func cancelButtonTapped(_ sender: Any) {
-        
-        dismissVC(-1)
-    }
 }

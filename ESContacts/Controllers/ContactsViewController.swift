@@ -24,22 +24,42 @@ class ContactsViewController: BaseViewController, UITableViewDelegate, UITableVi
         itemTableView.register(UITableViewCell.self, forCellReuseIdentifier: "contactCell")
         itemTableView.register(UITableViewCell.self, forCellReuseIdentifier: "footerCell")
         
+        //
+        // check if we already did an import, if not do one here
+        //
         if Util.checkImport("importJSON") {
             _ = ContactHelper.importJSON()
         }
         
+        //
+        // build out the table view
+        //
         sectionHeaders = ContactHelper.letterKeys()
         itemTableView.delegate = self
         itemTableView.dataSource = self
         itemTableView.tableFooterView = UIView()
         
-        // listen for contact changed
+        //
+        // set up observers for notifcations that a contact has changed or been deleted
+        // so we can refresh the view
+        //
         NotificationCenter.default.addObserver(self, selector: #selector(contactSaved), name: Notification.Name(rawValue: SAVE_NOTIFICATION), object: nil)
-        // listen for contact deleted
+    
         NotificationCenter.default.addObserver(self, selector: #selector(contactDeleted), name: Notification.Name(rawValue: DELETE_NOTIFICATION), object: nil)
     }
     
+    //
+    // make sure we refresh the view on the main thread
+    //
+    func refreshView() {
+        DispatchQueue.main.async {
+            self.sectionHeaders = ContactHelper.letterKeys()
+            self.itemTableView.reloadData()
+        }
+    }
+    
     @objc func contactDeleted() {
+        // if a contact was deleted, pop the "detail" view since its no longer valid
         navigationController?.popToRootViewController(animated: true)
         refreshView()
     }
@@ -52,14 +72,17 @@ class ContactsViewController: BaseViewController, UITableViewDelegate, UITableVi
         NotificationCenter.default.removeObserver(self)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    //
+    // action for the add (plus sign) in the navigation bar
+    //
     
     @IBAction func addContact(_ sender: Any) {
         performSegue(withIdentifier: "addNewContact", sender: self)
     }
+    
+    //
+    // use the segue to pass the selected contact to the "detail" view
+    //
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetails" {
@@ -68,6 +91,10 @@ class ContactsViewController: BaseViewController, UITableViewDelegate, UITableVi
            }
         }
     }
+    
+    //
+    // helper functions for the table view
+    //
     
     func showDetails(_ contact: ContactData) {
         performSegue(withIdentifier: "showDetails", sender: contact)
@@ -80,13 +107,6 @@ class ContactsViewController: BaseViewController, UITableViewDelegate, UITableVi
             footerText = " Contact"
         }
         return String(count) + footerText
-    }
-    
-    func refreshView() {
-        DispatchQueue.main.async {
-            self.sectionHeaders = ContactHelper.letterKeys()
-            self.itemTableView.reloadData()
-        }
     }
     
     func letterForSection(_ index: Int) -> String? {

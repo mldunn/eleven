@@ -30,7 +30,9 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         bindFields()
         
-        // listen for contact changed
+        //
+        // listen for contact changed so we can refresh the view
+        //
         NotificationCenter.default.addObserver(self, selector: #selector(handleChange), name: Notification.Name(rawValue: SAVE_NOTIFICATION), object: nil)
 
     }
@@ -54,7 +56,9 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @objc func handleChange(_ sender: Any) {
-        
+        //
+        // requery the data store to get the updated contact
+        //
         if let id = contact?.id {
             contact = ContactHelper.getContact(id)
         }
@@ -63,6 +67,9 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    //
+    // bind the data values to the UI outlets
+    //
     func bindFields() {
         
         if let c = contact {
@@ -88,16 +95,28 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
 
 }
 
+//
+// tableview delegate/datasource functions
+//
+
+//
+// I don't like the group of if statements in each method to determine the type of section because it doesnt scale
+// if there were more than three it would be best to set up some kind of mapping
+//
+
 extension DetailsViewController {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        //skip the info section as it not in the table
+        //skip the info section as it not in this table its in a fixed view above it
         return TypeLabels.sections.count - 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         var count = 0
+        
+        //
+        // find the section counts
+        //
         if let c = contact {
             if section == 0 {
                 count = c.phoneItems?.count ?? 0
