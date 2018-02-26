@@ -77,7 +77,7 @@ The project includes a number of view class used for managing table view cells a
 
 ## Testing
 
-You can test the application using the following instructions.  Any changes made should be persisted in the data store, so the test should include examining changes when running the app and also when re-opening the app.
+You can test the application using the following suggestions.  Any changes made should be persisted in the data store, so the test should include examining changes when running the app and also when re-opening the app.
 
 ### Import
 
