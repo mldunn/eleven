@@ -34,13 +34,17 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         detailsTableView.dataSource = self
         detailsTableView.tableFooterView = UIView()
         
-        bindFields()
-        
-        //
-        // listen for contact changed so we can refresh the view
-        //
-        NotificationCenter.default.addObserver(self, selector: #selector(handleChange), name: Notification.Name(rawValue: SAVE_NOTIFICATION), object: nil)
-
+    }
+    
+    //
+    // bind the fields here in viewWillAppear so when we come back from an edit
+    // the view refreshes automatically
+    //
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        DispatchQueue.main.async {
+            self.bindFields()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -53,31 +57,17 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
+   
     
     @IBAction func editButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "editContact", sender: contact)
     }
     
-    @objc func handleChange(_ sender: Any) {
-        //
-        // requery the data store to get the updated contact
-        //
-        if let id = contact?.id {
-            contact = ContactHelper.getContact(id)
-        }
-        DispatchQueue.main.async {
-            self.bindFields()
-        }
-    }
-    
+   
     //
     // bind the data values to the UI outlets
     //
     func bindFields() {
-        
         if let c = contact {
             initialLabel.text = c.initials
             initialLabel.sizeToFit()
