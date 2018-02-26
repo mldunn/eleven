@@ -8,8 +8,7 @@ Implement a simple Contacts app based on iOS contacts UI, allow the ability to c
 
 ## Installation
 
-The project is a Single View App designed for the iPhone with no additional Frameworks or Cocoa Pods.  To run, clone or download and open the ESContacts.xcodeproj file.  When the program runs for the first time it will load a bundled JSON file of 10 contacts and add them to the CoreData store
-
+The project is a Single View App designed for the iPhone with no additional frameworks or CocoaPods.  To run, clone or download, open the ESContacts.xcodeproj file and run the project.  When the app runs for the first time it will load a bundled JSON file of 10 contacts and add them to the CoreData store. 
 ## Architecture
 
 
@@ -25,13 +24,13 @@ The data model consists four entities in CoreData, the main one being ContactDat
     - sectionKey
     - sortName
     - sortIndex
-    - PhoneData
+    + PhoneData
         - type
         - value
-    - EmailData
+    + EmailData
         - type
         - value
-    - AddressData
+    + AddressData
         - type
         - street1
         - street2
@@ -77,7 +76,7 @@ The project includes a number of view class used for managing table view cells a
 
 ## Testing
 
-You can test the application using the following instructions.  Any changes made should be persisted in the data store, so the test should include examining changes when running the app and also when re-opening the app.
+You can test the application using the following suggestions.  Any changes made should be persisted in the data store, so the test should include examining changes when running the app and also when re-opening the app.
 
 ### Import
 
