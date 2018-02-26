@@ -8,8 +8,7 @@ Implement a simple Contacts app based on iOS contacts UI, allow the ability to c
 
 ## Installation
 
-The project is a Single View App designed for the iPhone with no additional Frameworks or Cocoa Pods.  To run, clone or download and open the ESContacts.xcodeproj file.  When the program runs for the first time it will load a bundled JSON file of 10 contacts and add them to the CoreData store
-
+The project is a Single View App designed for the iPhone with no additional frameworks or CocoaPods.  To run, clone or download, open the ESContacts.xcodeproj file and run the project.  When the app runs for the first time it will load a bundled JSON file of 10 contacts and add them to the CoreData store. 
 ## Architecture
 
 
