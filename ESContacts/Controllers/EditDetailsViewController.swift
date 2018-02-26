@@ -63,7 +63,27 @@ class EditDetailsViewController: BaseViewController, UITableViewDelegate, UITabl
         detailsTableView.delegate = self
         detailsTableView.tableFooterView = UIView()
         detailsTableView.setEditing(true, animated: false)
+   
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let kbSizeValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue else { return }
+        let height = kbSizeValue.cgRectValue.height
+        
+        let footer = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: height))
+        detailsTableView.tableFooterView = footer
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        detailsTableView.tableFooterView = UIView()
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         if let section = TypeLabels.sections.index(of: changeLabelSection)  {
@@ -127,6 +147,17 @@ class EditDetailsViewController: BaseViewController, UITableViewDelegate, UITabl
             }
         }
         dismiss(animated: true, completion: nil)
+    }
+    
+    //
+    // delete relationship entities
+    //
+    
+    func deleteRelationshipEntity(_ obj: NSManagedObject) {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            let managedContext = appDelegate.persistentContainer.viewContext
+            managedContext.delete(obj)
+        }
     }
     
     
@@ -208,12 +239,15 @@ class EditDetailsViewController: BaseViewController, UITableViewDelegate, UITabl
     func removeDetailRow(_ indexPath: IndexPath) {
         if indexPath.section == 1, let info = getPhoneInfo(indexPath.row) {
             newContact.removeFromPhoneItems(info)
+            deleteRelationshipEntity(info)
         }
         else if indexPath.section == 2, let info = getEmailInfo(indexPath.row) {
             newContact.removeFromEmailItems(info)
+             deleteRelationshipEntity(info)
         }
         else if indexPath.section == 3, let info = getAddressInfo(indexPath.row) {
             newContact.removeFromAddressItems(info)
+            deleteRelationshipEntity(info)
         }
         DispatchQueue.main.async {
             

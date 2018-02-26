@@ -139,7 +139,7 @@
                                                             </constraints>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                            <textInputTraits key="textInputTraits" textContentType="tel"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="NO"/>
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="leftBorder" value="YES"/>
