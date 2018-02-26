@@ -149,16 +149,6 @@ class EditDetailsViewController: BaseViewController, UITableViewDelegate, UITabl
         dismiss(animated: true, completion: nil)
     }
     
-    //
-    // delete relationship entities
-    //
-    
-    func deleteRelationshipEntity(_ obj: NSManagedObject) {
-        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-            let managedContext = appDelegate.persistentContainer.viewContext
-            managedContext.delete(obj)
-        }
-    }
     
     
     //
@@ -238,16 +228,13 @@ class EditDetailsViewController: BaseViewController, UITableViewDelegate, UITabl
     
     func removeDetailRow(_ indexPath: IndexPath) {
         if indexPath.section == 1, let info = getPhoneInfo(indexPath.row) {
-            newContact.removeFromPhoneItems(info)
-            deleteRelationshipEntity(info)
+            newContact.removePhone(info)
         }
         else if indexPath.section == 2, let info = getEmailInfo(indexPath.row) {
-            newContact.removeFromEmailItems(info)
-             deleteRelationshipEntity(info)
+            newContact.removeEmail(info)
         }
         else if indexPath.section == 3, let info = getAddressInfo(indexPath.row) {
-            newContact.removeFromAddressItems(info)
-            deleteRelationshipEntity(info)
+            newContact.removeAddress(info)
         }
         DispatchQueue.main.async {
             

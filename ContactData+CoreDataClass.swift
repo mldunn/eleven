@@ -276,6 +276,32 @@ public class ContactData: NSManagedObject {
         return addressCount
     }
     
+    func removePhone(_ item: PhoneData)  {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate  {
+            let managedContext = appDelegate.persistentContainer.viewContext
+            
+            removeFromPhoneItems(item)
+            managedContext.delete(item)
+        }
+    }
+    
+    func removeEmail(_ item: EmailData)  {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate  {
+            let managedContext = appDelegate.persistentContainer.viewContext
+            
+            removeFromEmailItems(item)
+            managedContext.delete(item)
+        }
+    }
+    
+    func removeAddress(_ item: AddressData)  {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate  {
+            let managedContext = appDelegate.persistentContainer.viewContext
+            
+            removeFromAddressItems(item)
+            managedContext.delete(item)
+        }
+    }
     
     func sanitize() {
         if let set = phoneItems {
