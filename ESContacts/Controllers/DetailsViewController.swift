@@ -22,6 +22,12 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        // turn off large titles
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
+        // create the cricle
         circleView.layer.cornerRadius = circleView.bounds.width / 2
         
         detailsTableView.delegate = self

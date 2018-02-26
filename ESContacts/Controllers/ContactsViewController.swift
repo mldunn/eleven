@@ -48,6 +48,13 @@ class ContactsViewController: BaseViewController, UITableViewDelegate, UITableVi
         NotificationCenter.default.addObserver(self, selector: #selector(contactDeleted), name: Notification.Name(rawValue: DELETE_NOTIFICATION), object: nil)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        // turn on large titles
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+    }
+    
+    
     //
     // make sure we refresh the view on the main thread
     //

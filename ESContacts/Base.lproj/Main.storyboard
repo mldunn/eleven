@@ -384,15 +384,38 @@
                                                         <constraint firstItem="mcC-B2-ZVd" firstAttribute="leading" secondItem="gIE-k1-X5s" secondAttribute="leading" id="smH-If-nCq"/>
                                                     </constraints>
                                                 </stackView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1zA-Wc-bL6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="75" height="127"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="card" translatesAutoresizingMaskIntoConstraints="NO" id="3cz-UD-gxK">
+                                                            <rect key="frame" x="17.5" y="43.5" width="40" height="40"/>
+                                                            <color key="tintColor" red="0.3411764706" green="0.50980392159999999" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="40" id="7yf-zZ-DFP"/>
+                                                                <constraint firstAttribute="height" constant="40" id="aHF-la-Au5"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="3cz-UD-gxK" firstAttribute="centerX" secondItem="1zA-Wc-bL6" secondAttribute="centerX" id="4eh-VI-Afo"/>
+                                                        <constraint firstItem="3cz-UD-gxK" firstAttribute="centerY" secondItem="1zA-Wc-bL6" secondAttribute="centerY" id="etc-Dt-H96"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="1zA-Wc-bL6" firstAttribute="leading" secondItem="FfH-L9-XZN" secondAttribute="leading" id="G3G-NH-7GK"/>
+                                                <constraint firstAttribute="bottom" secondItem="1zA-Wc-bL6" secondAttribute="bottom" id="HVW-V4-HGO"/>
                                                 <constraint firstItem="gIE-k1-X5s" firstAttribute="top" secondItem="FfH-L9-XZN" secondAttribute="topMargin" id="IDW-Ho-XgZ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="gIE-k1-X5s" secondAttribute="trailing" id="NJp-f7-Xox"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="gIE-k1-X5s" secondAttribute="bottom" id="Yb6-tI-zJL"/>
+                                                <constraint firstItem="1zA-Wc-bL6" firstAttribute="top" secondItem="FfH-L9-XZN" secondAttribute="top" id="dP2-ZT-Crg"/>
                                                 <constraint firstItem="gIE-k1-X5s" firstAttribute="leading" secondItem="FfH-L9-XZN" secondAttribute="leadingMargin" constant="60" id="zV0-hd-CN3"/>
+                                                <constraint firstItem="gIE-k1-X5s" firstAttribute="leading" secondItem="1zA-Wc-bL6" secondAttribute="trailing" id="zs2-UB-2fm"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cardImageView" destination="3cz-UD-gxK" id="e86-8N-V0F"/>
                                             <outlet property="companyField" destination="KIW-8Y-gpy" id="PxQ-n0-3Cb"/>
                                             <outlet property="firstNameField" destination="mcC-B2-ZVd" id="aeh-FS-NFv"/>
                                             <outlet property="lastNameField" destination="mGg-DP-OZq" id="4vi-Vt-Nb2"/>
@@ -829,6 +852,9 @@
             <point key="canvasLocation" x="362" y="896"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="card" width="256" height="256"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Dsh-Pq-lw3"/>
     </inferredMetricsTieBreakers>

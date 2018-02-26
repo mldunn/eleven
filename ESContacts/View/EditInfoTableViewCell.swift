@@ -19,6 +19,7 @@ class EditInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var companyField: ItemTextField!
     @IBOutlet weak var firstNameField: ItemTextField!
     
+    @IBOutlet weak var cardImageView: UIImageView!
     var contact: ContactData?
     var delegate: ContactUpdateDelegate?
   
@@ -31,6 +32,10 @@ class EditInfoTableViewCell: UITableViewCell {
         if contact?.isValid == false {
             firstNameField.becomeFirstResponder()
         }
+        
+        cardImageView.image = cardImageView.image?.withRenderingMode(.alwaysTemplate)
+        cardImageView.tintColor = Colors.customBlue
+        
     }
     
     @IBAction func firstNameChanged(_ sender: Any) {
