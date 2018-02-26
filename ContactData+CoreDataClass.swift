@@ -255,8 +255,7 @@ public class ContactData: NSManagedObject {
             let phone = PhoneData(context: managedContext)
             addToPhoneItems(phone)
         }
-        dumpSet(phoneItems)
-        return phoneCount
+       return phoneCount
     }
    
     func addEmail() -> Int {
@@ -265,7 +264,6 @@ public class ContactData: NSManagedObject {
             let email = EmailData(context: managedContext)
             addToEmailItems(email)
         }
-        dumpSet(emailItems)
         return emailCount
     }
     

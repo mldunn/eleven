@@ -10,14 +10,15 @@ import Foundation
 
 
 //
-// This is a hard coded files that maps detail labels to the approciate data section
-// used to dispaly the list of available labels for a data item
-// Ideally it would be better served as a database entity
+// This is a hard coded file that maps detail labels to the appropriate section
+// used to display the list of available labels for a data item
+//
+// Ideally it would be better served as a database entity and add the ability to create on the fly
 //
 
 class TypeLabels {
     static let phone = ["home", "work", "mobile", "iPhone", "main", "school", "home fax", "work fax", "pager"]
-    static let email =  ["home", "work", "iCloud", "school:","other"]
+    static let email =  ["home", "work", "iCloud", "school", "other"]
     static let address = ["home", "work", "school", "vaction", "other"]
     
     

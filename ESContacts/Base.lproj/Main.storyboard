@@ -633,7 +633,7 @@
                                     <constraint firstAttribute="trailing" secondItem="qlb-I7-kcc" secondAttribute="trailing" constant="8" id="yA4-Ec-9ko"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ofj-SG-DSc">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ofj-SG-DSc">
                                 <rect key="frame" x="0.0" y="276" width="375" height="347"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -797,10 +797,10 @@
             </objects>
             <point key="canvasLocation" x="-642.5" y="51.5"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Contacts Navigation Controller-->
         <scene sceneID="OLL-Dy-qbZ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Ew-MU-Pgl" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4Ew-MU-Pgl" userLabel="Contacts Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="OH7-WI-hoq">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
@@ -815,10 +815,10 @@
             </objects>
             <point key="canvasLocation" x="-2542" y="52"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Edit Navigation Controller-->
         <scene sceneID="fQm-bi-IDu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qHu-Nj-q9W" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qHu-Nj-q9W" userLabel="Edit Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FNK-tC-DVO">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -833,10 +833,10 @@
             </objects>
             <point key="canvasLocation" x="-1626" y="897"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Labels Navigation Controller-->
         <scene sceneID="ZrV-hV-zPu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1lu-5x-wor" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1lu-5x-wor" userLabel="Labels Navigation Controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wAE-ed-i1P">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
