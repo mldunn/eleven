@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D513EF05203D00820050A650 /* ContactHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D513EF04203D00820050A650 /* ContactHelper.swift */; };
 		D513EF14203D8D9D0050A650 /* PhoneData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D513EF12203D8D9D0050A650 /* PhoneData+CoreDataClass.swift */; };
 		D513EF15203D8D9D0050A650 /* PhoneData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D513EF13203D8D9D0050A650 /* PhoneData+CoreDataProperties.swift */; };
 		D513EF1A203D8EA10050A650 /* ContactData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D513EF16203D8EA10050A650 /* ContactData+CoreDataClass.swift */; };
@@ -18,10 +17,11 @@
 		D52E125D204240E500CC97EB /* EmailData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52E125B204240E500CC97EB /* EmailData+CoreDataProperties.swift */; };
 		D52E125F204243EF00CC97EB /* EmailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52E125E204243EF00CC97EB /* EmailTableViewCell.swift */; };
 		D52E84282040C105007AA1C1 /* EditInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D52E84272040C105007AA1C1 /* EditInfoTableViewCell.swift */; };
+		D562C3CE204459130035C75B /* ContactHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D562C3CC204459130035C75B /* ContactHelper.swift */; };
+		D562C3CF204459130035C75B /* TypeLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D562C3CD204459130035C75B /* TypeLabels.swift */; };
 		D56D7F22204248DF00550B6E /* EditEmailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D56D7F21204248DF00550B6E /* EditEmailTableViewCell.swift */; };
 		D57B77FA204282980058B399 /* TypeLabelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57B77F9204282980058B399 /* TypeLabelsTableViewController.swift */; };
 		D57B77FC2042E6930058B399 /* LabelPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57B77FB2042E6930058B399 /* LabelPickerButton.swift */; };
-		D57B77FE2042EE8F0058B399 /* TypeLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57B77FD2042EE8F0058B399 /* TypeLabels.swift */; };
 		D57B7801204325E60058B399 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57B7800204325E60058B399 /* BaseViewController.swift */; };
 		D57B780320434C540058B399 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57B780220434C540058B399 /* CustomLabel.swift */; };
 		D5963506203B645300E0D6BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5963505203B645300E0D6BB /* AppDelegate.swift */; };
@@ -56,7 +56,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D513EF04203D00820050A650 /* ContactHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactHelper.swift; sourceTree = "<group>"; };
 		D513EF12203D8D9D0050A650 /* PhoneData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhoneData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D513EF13203D8D9D0050A650 /* PhoneData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhoneData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D513EF16203D8EA10050A650 /* ContactData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactData+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -67,10 +66,11 @@
 		D52E125B204240E500CC97EB /* EmailData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmailData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D52E125E204243EF00CC97EB /* EmailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTableViewCell.swift; sourceTree = "<group>"; };
 		D52E84272040C105007AA1C1 /* EditInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInfoTableViewCell.swift; sourceTree = "<group>"; };
+		D562C3CC204459130035C75B /* ContactHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactHelper.swift; path = ESContacts/Model/ContactHelper.swift; sourceTree = SOURCE_ROOT; };
+		D562C3CD204459130035C75B /* TypeLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TypeLabels.swift; path = ESContacts/Model/TypeLabels.swift; sourceTree = SOURCE_ROOT; };
 		D56D7F21204248DF00550B6E /* EditEmailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEmailTableViewCell.swift; sourceTree = "<group>"; };
 		D57B77F9204282980058B399 /* TypeLabelsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeLabelsTableViewController.swift; sourceTree = "<group>"; };
 		D57B77FB2042E6930058B399 /* LabelPickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelPickerButton.swift; sourceTree = "<group>"; };
-		D57B77FD2042EE8F0058B399 /* TypeLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeLabels.swift; sourceTree = "<group>"; };
 		D57B7800204325E60058B399 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D57B780220434C540058B399 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		D5963502203B645300E0D6BB /* ESContacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESContacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,8 +119,8 @@
 		D57B77FF2042F3010058B399 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D513EF04203D00820050A650 /* ContactHelper.swift */,
-				D57B77FD2042EE8F0058B399 /* TypeLabels.swift */,
+				D562C3CC204459130035C75B /* ContactHelper.swift */,
+				D562C3CD204459130035C75B /* TypeLabels.swift */,
 			);
 			name = Model;
 			path = "New Group";
@@ -323,7 +323,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D513EF05203D00820050A650 /* ContactHelper.swift in Sources */,
 				D513EF1B203D8EA10050A650 /* ContactData+CoreDataProperties.swift in Sources */,
 				D52E125C204240E500CC97EB /* EmailData+CoreDataClass.swift in Sources */,
 				D596350E203B645300E0D6BB /* ESContacts.xcdatamodeld in Sources */,
@@ -335,6 +334,7 @@
 				D57B77FC2042E6930058B399 /* LabelPickerButton.swift in Sources */,
 				D5963547203BDF3B00E0D6BB /* PhoneTableViewCell.swift in Sources */,
 				D5A4F3C92041BF5A00F30602 /* Logger.swift in Sources */,
+				D562C3CF204459130035C75B /* TypeLabels.swift in Sources */,
 				D52E125D204240E500CC97EB /* EmailData+CoreDataProperties.swift in Sources */,
 				D596353E203B9A2200E0D6BB /* DetailsViewController.swift in Sources */,
 				D5963539203B8F1400E0D6BB /* Constants.swift in Sources */,
@@ -345,10 +345,10 @@
 				D5963534203B74C900E0D6BB /* Util.swift in Sources */,
 				D5963536203B8D9000E0D6BB /* ContactsViewController.swift in Sources */,
 				D57B77FA204282980058B399 /* TypeLabelsTableViewController.swift in Sources */,
-				D57B77FE2042EE8F0058B399 /* TypeLabels.swift in Sources */,
 				D596354B203BEF4600E0D6BB /* EditPhoneTableViewCell.swift in Sources */,
 				D513EF14203D8D9D0050A650 /* PhoneData+CoreDataClass.swift in Sources */,
 				D5963506203B645300E0D6BB /* AppDelegate.swift in Sources */,
+				D562C3CE204459130035C75B /* ContactHelper.swift in Sources */,
 				D5A4F3CB2041C96B00F30602 /* Extensions.swift in Sources */,
 				D5963549203BDF4900E0D6BB /* AddressTableViewCell.swift in Sources */,
 				D52E125F204243EF00CC97EB /* EmailTableViewCell.swift in Sources */,
