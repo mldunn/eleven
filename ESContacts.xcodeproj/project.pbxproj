@@ -66,8 +66,8 @@
 		D52E125B204240E500CC97EB /* EmailData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmailData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D52E125E204243EF00CC97EB /* EmailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTableViewCell.swift; sourceTree = "<group>"; };
 		D52E84272040C105007AA1C1 /* EditInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInfoTableViewCell.swift; sourceTree = "<group>"; };
-		D562C3CC204459130035C75B /* ContactHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactHelper.swift; path = ESContacts/Model/ContactHelper.swift; sourceTree = SOURCE_ROOT; };
-		D562C3CD204459130035C75B /* TypeLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TypeLabels.swift; path = ESContacts/Model/TypeLabels.swift; sourceTree = SOURCE_ROOT; };
+		D562C3CC204459130035C75B /* ContactHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactHelper.swift; path = ESContacts/Util/ContactHelper.swift; sourceTree = SOURCE_ROOT; };
+		D562C3CD204459130035C75B /* TypeLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TypeLabels.swift; path = ESContacts/Util/TypeLabels.swift; sourceTree = SOURCE_ROOT; };
 		D56D7F21204248DF00550B6E /* EditEmailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEmailTableViewCell.swift; sourceTree = "<group>"; };
 		D57B77F9204282980058B399 /* TypeLabelsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeLabelsTableViewController.swift; sourceTree = "<group>"; };
 		D57B77FB2042E6930058B399 /* LabelPickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelPickerButton.swift; sourceTree = "<group>"; };
@@ -116,16 +116,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D57B77FF2042F3010058B399 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D562C3CC204459130035C75B /* ContactHelper.swift */,
-				D562C3CD204459130035C75B /* TypeLabels.swift */,
-			);
-			name = Model;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		D59634F9203B645200E0D6BB = {
 			isa = PBXGroup;
 			children = (
@@ -155,7 +145,6 @@
 		D5963504203B645300E0D6BB /* ESContacts */ = {
 			isa = PBXGroup;
 			children = (
-				D57B77FF2042F3010058B399 /* Model */,
 				D5963541203BB2C300E0D6BB /* View */,
 				D596353C203B99EC00E0D6BB /* Controllers */,
 				D5963537203B8EDF00E0D6BB /* Util */,
@@ -182,6 +171,8 @@
 		D5963537203B8EDF00E0D6BB /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				D562C3CD204459130035C75B /* TypeLabels.swift */,
+				D562C3CC204459130035C75B /* ContactHelper.swift */,
 				D5963533203B74C900E0D6BB /* Util.swift */,
 				D5963538203B8F1400E0D6BB /* Constants.swift */,
 				D5A4F3C82041BF5A00F30602 /* Logger.swift */,
