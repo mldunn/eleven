@@ -25,13 +25,13 @@ The data model consists four entities in CoreData, the main one being ContactDat
     - sectionKey
     - sortName
     - sortIndex
-    - PhoneData
+    + PhoneData
         - type
         - value
-    - EmailData
+    + EmailData
         - type
         - value
-    - AddressData
+    + AddressData
         - type
         - street1
         - street2
